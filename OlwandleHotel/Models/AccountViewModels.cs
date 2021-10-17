@@ -79,6 +79,28 @@ namespace OlwandleHotel.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [StringLength(13, ErrorMessage = "Invalid Identity Number.", MinimumLength = 13)]
+        [Display(Name = "Identity Number")]
+        public string  IDNumber { get; set; }
+
+        public List<FinalizedBooking> FinalizedBookings { get; set; }
+        public List<ReservedBooking> ReservedBookings { get; set; }
+
+
+
+
+
+
     }
 
     public class ResetPasswordViewModel

@@ -205,6 +205,10 @@
     <Compile Include="Migrations\202110171901397_ChangeRoomModel.designer.cs">
       <DependentUpon>202110171901397_ChangeRoomModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110172153457_ModelTest.cs" />
+    <Compile Include="Migrations\202110172153457_ModelTest.designer.cs">
+      <DependentUpon>202110172153457_ModelTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FinalizedBookingDetail.cs" />
@@ -278,7 +282,7 @@
     <Content Include="Views\Rooms\Details.cshtml" />
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
-    <Content Include="Views\Rooms\AvailableRooms.cshtml" />
+    <Content Include="Views\Rooms\AllRooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110171901397_ChangeRoomModel.resx">
       <DependentUpon>202110171901397_ChangeRoomModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110172153457_ModelTest.resx">
+      <DependentUpon>202110172153457_ModelTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

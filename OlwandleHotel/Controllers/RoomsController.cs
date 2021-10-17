@@ -21,10 +21,11 @@ namespace OlwandleHotel.Controllers
             return View(await db.Rooms.ToListAsync());
         }
 
+
         // GET: AvailableRooms
-        public async Task<ActionResult> AvailableRooms()
+        public async Task<ActionResult> AllRooms()
         {
-            return View(await db.Rooms.Where(x => x.RoomStatus == true).ToListAsync());
+            return View(await db.Rooms.ToListAsync());
         }
 
         // GET: Rooms/Details/5
