@@ -20,6 +20,11 @@ namespace OlwandleHotel.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<ReservedBooking> ReservedBookings { get; set; }
+        public DbSet<FinalizedBooking> FinalizedBookings { get; set; }
+        public DbSet<FinalizedBookingDetail> FinalizedBookingDetails { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

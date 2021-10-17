@@ -185,12 +185,34 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110171754354_Hotel-Tables.cs" />
+    <Compile Include="Migrations\202110171754354_Hotel-Tables.designer.cs">
+      <DependentUpon>202110171754354_Hotel-Tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110171816097_Hotel-Types.cs" />
+    <Compile Include="Migrations\202110171816097_Hotel-Types.designer.cs">
+      <DependentUpon>202110171816097_Hotel-Types.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110171851350_Seed.cs" />
+    <Compile Include="Migrations\202110171851350_Seed.designer.cs">
+      <DependentUpon>202110171851350_Seed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110171901397_ChangeRoomModel.cs" />
+    <Compile Include="Migrations\202110171901397_ChangeRoomModel.designer.cs">
+      <DependentUpon>202110171901397_ChangeRoomModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FinalizedBookingDetail.cs" />
+    <Compile Include="Models\FinalizedBooking.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ReservedBooking.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -251,6 +273,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Rooms\Create.cshtml" />
+    <Content Include="Views\Rooms\Delete.cshtml" />
+    <Content Include="Views\Rooms\Details.cshtml" />
+    <Content Include="Views\Rooms\Edit.cshtml" />
+    <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\Rooms\AvailableRooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -267,6 +295,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202110171754354_Hotel-Tables.resx">
+      <DependentUpon>202110171754354_Hotel-Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110171816097_Hotel-Types.resx">
+      <DependentUpon>202110171816097_Hotel-Types.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110171851350_Seed.resx">
+      <DependentUpon>202110171851350_Seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110171901397_ChangeRoomModel.resx">
+      <DependentUpon>202110171901397_ChangeRoomModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
