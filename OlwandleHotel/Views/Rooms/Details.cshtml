@@ -64,6 +64,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action(actionName: "Payment", controllerName: "ReservedBookings", routeValues: new {id = Model.RoomId})" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Confirm Reservation</a>
+    @Html.ActionLink("Back to List", "AllRooms")
 </p>

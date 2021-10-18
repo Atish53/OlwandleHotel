@@ -56,6 +56,15 @@
     <Reference Include="PayFast, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PayFast.1.0.4\lib\net452\PayFast.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=19.3451.0.45, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.19.3.0.45\lib\net451\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=19.3451.0.45, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.19.3.0.45\lib\net451\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=19.3451.0.45, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.AspNet.19.3.0.45\lib\net451\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -230,6 +239,10 @@
     <Compile Include="Migrations\202110180111512_Double.designer.cs">
       <DependentUpon>202110180111512_Double.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110180225487_ent.cs" />
+    <Compile Include="Migrations\202110180225487_ent.designer.cs">
+      <DependentUpon>202110180225487_ent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FinalizedBookingDetail.cs" />
@@ -251,6 +264,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Photos\EmailLogo.PNG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\2021GRP40 - Web Deploy.pubxml" />
@@ -313,6 +327,7 @@
     <Content Include="Views\Payment\Success.cshtml" />
     <Content Include="Views\Payment\Cancelled.cshtml" />
     <Content Include="Views\Payment\Notify.cshtml" />
+    <Content Include="Views\ReservedBookings\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110180111512_Double.resx">
       <DependentUpon>202110180111512_Double.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110180225487_ent.resx">
+      <DependentUpon>202110180225487_ent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
