@@ -25,5 +25,11 @@ namespace OlwandleHotel.Models
         [StringLength(13, ErrorMessage = "Invalid Identity Number.", MinimumLength = 13)]
         [Display(Name = "Identity Number")]
         public string IDNumber { get; set; }
+
+        public int RoomId { get; set; }
+
+        public double ReservedCost { get; set; }
+
+        public virtual Room Room { get; set; }
     }
 }

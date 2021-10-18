@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PayFast, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayFast.1.0.4\lib\net452\PayFast.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -184,6 +187,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\ReservedBookingsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,10 +214,27 @@
     <Compile Include="Migrations\202110172153457_ModelTest.designer.cs">
       <DependentUpon>202110172153457_ModelTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110180046355_New.cs" />
+    <Compile Include="Migrations\202110180046355_New.designer.cs">
+      <DependentUpon>202110180046355_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110180050161_Room.cs" />
+    <Compile Include="Migrations\202110180050161_Room.designer.cs">
+      <DependentUpon>202110180050161_Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110180052523_Reserved.cs" />
+    <Compile Include="Migrations\202110180052523_Reserved.designer.cs">
+      <DependentUpon>202110180052523_Reserved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110180111512_Double.cs" />
+    <Compile Include="Migrations\202110180111512_Double.designer.cs">
+      <DependentUpon>202110180111512_Double.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FinalizedBookingDetail.cs" />
     <Compile Include="Models\FinalizedBooking.cs" />
+    <Compile Include="Models\IdentityExtensions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ReservedBooking.cs" />
@@ -283,6 +305,14 @@
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
     <Content Include="Views\Rooms\AllRooms.cshtml" />
+    <Content Include="Views\ReservedBookings\Create.cshtml" />
+    <Content Include="Views\ReservedBookings\Delete.cshtml" />
+    <Content Include="Views\ReservedBookings\Details.cshtml" />
+    <Content Include="Views\ReservedBookings\Edit.cshtml" />
+    <Content Include="Views\ReservedBookings\Index.cshtml" />
+    <Content Include="Views\Payment\Success.cshtml" />
+    <Content Include="Views\Payment\Cancelled.cshtml" />
+    <Content Include="Views\Payment\Notify.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -315,6 +345,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110172153457_ModelTest.resx">
       <DependentUpon>202110172153457_ModelTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110180046355_New.resx">
+      <DependentUpon>202110180046355_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110180050161_Room.resx">
+      <DependentUpon>202110180050161_Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110180052523_Reserved.resx">
+      <DependentUpon>202110180052523_Reserved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110180111512_Double.resx">
+      <DependentUpon>202110180111512_Double.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

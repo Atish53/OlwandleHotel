@@ -41,7 +41,7 @@ namespace OlwandleHotel.Models
 
         [Required]
         [DisplayName("Reservation Cost")]
-        public int FixedCost { get; set; } //Amount to pay.
+        public double FixedCost { get; set; } //Amount to pay.
 
         public virtual List<FinalizedBookingDetail> FinalizedBookingDetails { get; set; }
        
