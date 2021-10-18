@@ -1,0 +1,37 @@
+﻿@model IEnumerable<OlwandleHotel.Models.ReservedBooking>
+
+@{
+    ViewBag.Title = "Reservation History";
+}
+
+<h2 style="text-align:center">Previously Reserved Hotel Rooms</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Room.RoomLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedCost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room.RoomLocation)
+        </td>
+       
+        <td>
+            R @Html.DisplayFor(modelItem => item.ReservedCost)
+        </td>
+        <td>
+            @Html.ActionLink("Cancel", "Delete", new { id=item.ReservedBookingId }) |
+            @Html.ActionLink("Download Invoice", "Details", new { id=item.ReservedBookingId }) |
+            @Html.ActionLink("Email Invoice", "Delete", new { id=item.ReservedBookingId })
+        </td>
+    </tr>
+}
+
+</table>

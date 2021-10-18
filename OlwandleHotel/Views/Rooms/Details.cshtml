@@ -4,25 +4,24 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.NumBeds Bedroom House At @Model.RoomLocation</h2>
+<h2 style="text-align:center">@Model.NumBeds Bedroom House At @Model.RoomLocation</h2>
+
+<img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture, 0, Model.Picture.Length)" style="width: 600px; height:360px; align-self:center;" />
 
 <div>
-    <h4>Room</h4>
+    @if (Model.RoomStatus == true)
+    {
+        <h4 style="text-align:center; color:forestgreen;"> Available For Reservation</h4>
+    }
+    else
+    {
+        <h4 style="text-align:center; color:red;"> Currently Reserved </h4>
+    }
     <hr />
     <dl class="dl-horizontal">
-      
-        <img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture, 0, Model.Picture.Length)" style="width: 600px; height: 360px" />
-                 
-        <dt>
-            @Html.DisplayNameFor(model => model.RoomStatus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RoomStatus)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MaxOccupants)
+            @Html.DisplayNameFor(model => model.MaxOccupants):
         </dt>
 
         <dd>
@@ -30,7 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NumBeds)
+            @Html.DisplayNameFor(model => model.NumBeds):
         </dt>
 
         <dd>
@@ -38,7 +37,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NumBaths)
+            @Html.DisplayNameFor(model => model.NumBaths):
         </dt>
 
         <dd>
@@ -46,7 +45,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NumLivingRooms)
+            @Html.DisplayNameFor(model => model.NumLivingRooms):
         </dt>
 
         <dd>
@@ -54,16 +53,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FixedCost)
+            @Html.DisplayNameFor(model => model.FixedCost):
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FixedCost)
+           R @Html.DisplayFor(model => model.FixedCost)
         </dd>
 
     </dl>
 </div>
 <p>
-    <a href="@Url.Action(actionName: "Payment", controllerName: "ReservedBookings", routeValues: new {id = Model.RoomId})" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Confirm Reservation</a>
+    @if (Model.RoomStatus == true)
+    {
+        <a href="@Url.Action(actionName: "Payment", controllerName: "ReservedBookings", routeValues: new {id = Model.RoomId})" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Confirm Reservation</a>
+    }
+    else
+    {
+        <a href="@Url.Action(actionName: "Payment", controllerName: "ReservedBookings", routeValues: new {id = Model.RoomId})" class="btn btn-danger disabled"><i class="fa fa-shopping-cart"></i>Reserved</a>
+    }
+    
     @Html.ActionLink("Back to List", "AllRooms")
 </p>

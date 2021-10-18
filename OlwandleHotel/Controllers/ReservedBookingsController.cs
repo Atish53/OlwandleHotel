@@ -29,6 +29,14 @@ namespace OlwandleHotel.Controllers
             return View(await reservedBookings.ToListAsync());
         }
 
+        [Authorize]
+        // GET: ReservedBookings
+        public async Task<ActionResult> PreviouslyReserved()
+        {
+            var reservedBookings = db.ReservedBookings.Include(r => r.Room);
+            return View(await reservedBookings.Where(x => x.Name == User.Identity.Name).ToListAsync());
+        }
+
         // GET: ReservedBookings/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -51,7 +59,7 @@ namespace OlwandleHotel.Controllers
         }
 
 
-
+        [Authorize]
         [HttpPost]        
         public async Task<ActionResult> Payment(int id)
         {
@@ -64,9 +72,9 @@ namespace OlwandleHotel.Controllers
 
             string ids = reservedBooking.ReservedBookingId.ToString();
             Room room = await db.Rooms.FindAsync(id);
-
-            reservedBooking.RoomId = 1;
-            reservedBooking.ReservedCost = 600;
+            room.RoomStatus = false;
+            reservedBooking.RoomId = room.RoomId;
+            reservedBooking.ReservedCost = room.FixedCost;
 
             db.ReservedBookings.Add(reservedBooking);
 
@@ -328,10 +336,14 @@ namespace OlwandleHotel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
+            
             ReservedBooking reservedBooking = await db.ReservedBookings.FindAsync(id);
+
+            Room room = await db.Rooms.FindAsync(reservedBooking.RoomId);
+            room.RoomStatus = true;
             db.ReservedBookings.Remove(reservedBooking);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("PreviouslyReserved");
         }
 
         protected override void Dispose(bool disposing)

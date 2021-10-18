@@ -328,6 +328,7 @@
     <Content Include="Views\Payment\Cancelled.cshtml" />
     <Content Include="Views\Payment\Notify.cshtml" />
     <Content Include="Views\ReservedBookings\Payment.cshtml" />
+    <Content Include="Views\ReservedBookings\PreviouslyReserved.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
