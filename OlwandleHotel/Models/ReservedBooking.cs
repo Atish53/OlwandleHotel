@@ -13,7 +13,6 @@ namespace OlwandleHotel.Models
 
         [Display(Name = "First Name")]
         public string Name { get; set; }
-
         
         [Display(Name = "Last Name")]
         public string LastName { get; set; }

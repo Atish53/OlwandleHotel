@@ -31,6 +31,13 @@ namespace OlwandleHotel.Models
         public DbSet<ReservedBooking> ReservedBookings { get; set; }
         public DbSet<FinalizedBooking> FinalizedBookings { get; set; }
         public DbSet<FinalizedBookingDetail> FinalizedBookingDetails { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Sale> Sales { get; set; }
+        public DbSet<SaleDetail> SaleDetails { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

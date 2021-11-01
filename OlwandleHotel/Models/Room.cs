@@ -10,14 +10,14 @@ namespace OlwandleHotel.Models
     public class Room
     {
         [Key]
-        public int RoomId { get; set; } //Room Number
+        public int RoomId { get; set; } //Room Number        
 
         [Required]
-        [Display(Name = "Location")]
-        public string RoomLocation { get; set; }
+        [Display(Name = "Hotel")]
+        public string HotelId { get; set; }
 
         [Display(Name = "Picture")]
-        public byte[] Picture { get; set; }
+        public byte[] RoomPicture { get; set; }
 
         [Required]
         [DisplayName("Room Status")]
@@ -43,7 +43,8 @@ namespace OlwandleHotel.Models
         [DisplayName("Reservation Cost")]
         public double FixedCost { get; set; } //Amount to pay.
 
-        public virtual List<FinalizedBookingDetail> FinalizedBookingDetails { get; set; }
-       
+        public virtual Hotel Hotel { get; set; }
+
+        public virtual List<FinalizedBookingDetail> FinalizedBookingDetails { get; set; }       
     }
 }
