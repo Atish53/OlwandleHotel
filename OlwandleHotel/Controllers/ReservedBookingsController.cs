@@ -139,7 +139,7 @@ namespace OlwandleHotel.Controllers
 
             //Add rows to the DataTable
             
-            invoiceDetails.Rows.Add(new object[] { reservedBooking.Room.RoomLocation,reservedBooking.Room.NumBeds, reservedBooking.Room.MaxOccupants, reservedBooking.ReservedCost });
+            invoiceDetails.Rows.Add(new object[] { reservedBooking.Room.RoomStatus,reservedBooking.Room.NumBeds, reservedBooking.Room.MaxOccupants, reservedBooking.ReservedCost });
             
 
 

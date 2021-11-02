@@ -59,7 +59,7 @@ namespace OlwandleHotel.Controllers
             byte[] data;
             data = new byte[img_upload.ContentLength];
             img_upload.InputStream.Read(data, 0, img_upload.ContentLength);
-            room.Picture = data;
+            room.RoomPicture = data;
 
             if (ModelState.IsValid)
             {
