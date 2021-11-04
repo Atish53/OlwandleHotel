@@ -101,9 +101,9 @@ namespace OlwandleHotel.Controllers
 
             db.EventBookings.Add(eventBooking);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
 
-            /*
+            MemoryStream msS = new MemoryStream(@event.EventPicture);
+
             //New Email.
             //Creates a new PDF document
             PdfDocument document = new PdfDocument();
@@ -114,98 +114,58 @@ namespace OlwandleHotel.Controllers
             PdfPage page = document.Pages.Add();
             PdfGraphics graphics = page.Graphics;
             //Loads the image from disk
-            PdfImage image = PdfImage.FromFile(Server.MapPath("~/Photos/EmailLogo.png"));
+            PdfImage image = PdfImage.FromStream(msS);
             RectangleF bounds = new RectangleF(10, 10, 200, 200);
             //Draws the image to the PDF page
             page.Graphics.DrawImage(image, bounds);
-            PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+            PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(80, 138, 4));
             bounds = new RectangleF(0, bounds.Bottom + 90, graphics.ClientSize.Width, 30);
             //Draws a rectangle to place the heading in that region.
             graphics.DrawRectangle(solidBrush, bounds);
             //Creates a font for adding the heading in the page
-            PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+            PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 13);
             //Creates a text element to add the invoice number
-            PdfTextElement element = new PdfTextElement("Reservation Number # " + reservedBooking.ReservedBookingId + " for" + " " + User.Identity.Name, subHeadingFont);
+            PdfTextElement element = new PdfTextElement("Thank you! You have successfully booked the " + @event.Name + " Event!", subHeadingFont);
             element.Brush = PdfBrushes.White;
-
             //Draws the heading on the page
-            PdfLayoutResult res = element.Draw(page, new PointF(10, bounds.Top + 8));
-            string currentDate = "Date Purchased " + System.DateTime.Today.Date;
-            //Measures the width of the text to place it in the correct location
-            SizeF textSize = subHeadingFont.MeasureString(currentDate);
-            PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, res.Bounds.Y);
-            //Draws the date by using DrawString method
-            graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-            PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+            PdfLayoutResult res = element.Draw(page, new PointF(10, bounds.Top + 8));           
+            PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
             //Creates text elements to add the address and draw it to the page.
-            element = new PdfTextElement("Bill To " + User.Identity.Name.ToString() + ", ", timesRoman);
-            element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
-            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 25));
-            element = new PdfTextElement("Total Price R " + reservedBooking.ReservedCost.ToString(), timesRoman);
-            element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
-            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 25));
-            PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
+            element = new PdfTextElement("This ticket belongs to: " + FirstName + " " + LastName, timesRoman);
+            element.Brush = new PdfSolidBrush(new PdfColor(16, 36, 7));
+            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 45));
+            element = new PdfTextElement("Identity Number: " + IdNumber, timesRoman);
+            element.Brush = new PdfSolidBrush(new PdfColor(16, 36, 7));
+            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 15));
+            element = new PdfTextElement("Event Location: " + @event.Location + ".", timesRoman);
+            element.Brush = new PdfSolidBrush(new PdfColor(80, 138, 4));
+            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 15));
+            element = new PdfTextElement("Description: " + @event.Description + ".", timesRoman);
+            element.Brush = new PdfSolidBrush(new PdfColor(80, 138, 4));
+            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 15));
+            element = new PdfTextElement("Price: R" + @event.Price, timesRoman);
+            element.Brush = new PdfSolidBrush(new PdfColor(80, 138, 4));
+            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 15));
+           
+            PdfPen linePen = new PdfPen(new PdfColor(80, 138, 4), 0.70f);
             PointF startPoint = new PointF(0, res.Bounds.Bottom + 3);
-            PointF endPoint = new PointF(graphics.ClientSize.Width, res.Bounds.Bottom + 3);
+            PointF endPoint = new PointF(graphics.ClientSize.Width, res.Bounds.Bottom + 5);
             //Draws a line at the bottom of the address
             graphics.DrawLine(linePen, startPoint, endPoint);
 
-            //Creates the datasource for the table
-            DataTable invoiceDetails = new DataTable();
+            PdfFont notTimesRoman = new PdfStandardFont(PdfFontFamily.Courier, 16);
+            element = new PdfTextElement("Your Ticket Number is" + eventBooking.TicketNumber, notTimesRoman);
+            element.Brush = new PdfSolidBrush(new PdfColor(48, 5, 5));
+            res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 15));
 
-            //Add columns to the DataTable
-            invoiceDetails.Columns.Add("Hotel Name");
-            invoiceDetails.Columns.Add("Beds");
-            invoiceDetails.Columns.Add("Occupies");
-            invoiceDetails.Columns.Add("Reservation Cost");
-
-
-
-            //Add rows to the DataTable
-
-            invoiceDetails.Rows.Add(new object[] { reservedBooking.Room.RoomStatus, reservedBooking.Room.NumBeds, reservedBooking.Room.MaxOccupants, reservedBooking.ReservedCost });
+            linePen = new PdfPen(new PdfColor(80, 138, 4), 0.70f);
+            startPoint = new PointF(0, res.Bounds.Bottom + 3);
+            endPoint = new PointF(graphics.ClientSize.Width, res.Bounds.Bottom + 5);
+            //Draws a line at the bottom of the address
+            graphics.DrawLine(linePen, startPoint, endPoint);
 
 
 
-            //Creates text elements to add the address and draw it to the page.
-
-
-
-            //Creates a PDF grid
-            PdfGrid grid = new PdfGrid();
-            //Adds the data source
-            grid.DataSource = invoiceDetails;
-            //Creates the grid cell styles
-            PdfGridCellStyle cellStyle = new PdfGridCellStyle();
-            cellStyle.Borders.All = PdfPens.White;
-            PdfGridRow header = grid.Headers[0];
-            //Creates the header style
-            PdfGridCellStyle headerStyle = new PdfGridCellStyle();
-            headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
-            headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-            headerStyle.TextBrush = PdfBrushes.White;
-            headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
-
-            //Adds cell customizations
-            for (int i = 0; i < header.Cells.Count; i++)
-            {
-                if (i == 0 || i == 1)
-                    header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
-                else
-                    header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
-            }
-
-            //Applies the header style
-            header.ApplyStyle(headerStyle);
-            cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
-            cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
-            cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
-            //Creates the layout format for grid
-            PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
-            // Creates layout format settings to allow the table pagination
-            layoutFormat.Layout = PdfLayoutType.Paginate;
-            //Draws the grid to the PDF page.
-            PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, res.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
             MemoryStream outputStream = new MemoryStream();
             document.Save(outputStream);
@@ -219,12 +179,10 @@ namespace OlwandleHotel.Controllers
             string emailTo = User.Identity.Name;
             MailAddress from = new MailAddress("21642835@dut4life.ac.za");
             mail.From = from;
-            mail.Subject = "Your invoice for reservation number #" + ids;
-            mail.Body = "Dear " + User.Identity.Name + ", find your invoice in the attached PDF document.";
+            mail.Subject = "Your e-Ticket for event: " + @event.Name;
+            mail.Body = "Dear " + FirstName + ", find your e-Ticket in the attached PDF document.";
             mail.To.Add(emailTo);
-
             mail.Attachments.Add(invoicePdf);
-
             mail.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp-mail.outlook.com";
@@ -242,8 +200,8 @@ namespace OlwandleHotel.Controllers
             try
             {
                 // Retrieve required values for the PayFast Merchant
-                string name = "ParadiseTravels Reservation #" + reservedBooking.ReservedBookingId;
-                string description = "This is a once-off and non-refundable reservation payment. ";
+                string name = "ParadiseTravels Event: " + @event.Name;
+                string description = "This is a once-off and non-refundable payment. ";
 
                 string site = "https://sandbox.payfast.co.za/eng/process";
                 string merchant_id = "";
@@ -267,8 +225,8 @@ namespace OlwandleHotel.Controllers
                 str.Append("&cancel_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_CancelURL"]));
                 str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
 
-                str.Append("&m_payment_id=" + HttpUtility.UrlEncode(reservedBooking.ReservedBookingId.ToString()));
-                str.Append("&amount=" + HttpUtility.UrlEncode(reservedBooking.Room.FixedCost.ToString()));
+                str.Append("&m_payment_id=" + HttpUtility.UrlEncode(eventBooking.EventBookingId.ToString()));
+                str.Append("&amount=" + HttpUtility.UrlEncode(@event.Price.ToString()));
                 str.Append("&item_name=" + HttpUtility.UrlEncode(name));
                 str.Append("&item_description=" + HttpUtility.UrlEncode(description));
 
@@ -278,7 +236,7 @@ namespace OlwandleHotel.Controllers
             catch (Exception)
             {
                 throw;
-            }*/
+            }
 
         }
 
@@ -339,6 +297,7 @@ namespace OlwandleHotel.Controllers
             return RedirectToAction("Index");
         }
 
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
