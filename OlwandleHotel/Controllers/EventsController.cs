@@ -8,8 +8,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OlwandleHotel.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity;
 
 namespace OlwandleHotel.Controllers
 {
@@ -18,45 +16,19 @@ namespace OlwandleHotel.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Events
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
-
-            ApplicationUser user = db.Users.Where(u => u.UserName.Equals(User.Identity.Name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-
-
-            //Admin
-            if (manager.IsInRole(user.Id, "Admin"))
-            {
-                @ViewBag.userIS = "Admin";
-            }            
-            else
-            { @ViewBag.userIS = "authzed"; }
-
-            return View(db.Events.ToList());
-        }
-        public ActionResult Event()
-        {
-            return View(db.Events.ToList());
-        }
-
-        public JsonResult GetEvents()
-        {
-            using (ApplicationDbContext dc = new ApplicationDbContext())
-            {
-                var events = dc.Events.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
+            return View(await db.Events.ToListAsync());
         }
 
         // GET: Events/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
+            Event @event = await db.Events.FindAsync(id);
             if (@event == null)
             {
                 return HttpNotFound();
@@ -71,31 +43,35 @@ namespace OlwandleHotel.Controllers
         }
 
         // POST: Events/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,Title,Description,Start,End,Location,ThemeColor,IsFullDay")] Event @event)
+        public async Task<ActionResult> Create([Bind(Include = "EventId,Title,EventPicture,Name,Description,Location,isActive")] Event @event, HttpPostedFileBase img_upload)
         {
+            byte[] data;
+            data = new byte[img_upload.ContentLength];
+            img_upload.InputStream.Read(data, 0, img_upload.ContentLength);
+            @event.EventPicture = data;
+
             if (ModelState.IsValid)
             {
                 db.Events.Add(@event);
-                db.SaveChanges();
-                TempData["ResultMessage"] = "Event has been successfully Created";
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
-            }
+            }     
 
             return View(@event);
         }
 
         // GET: Events/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
+            Event @event = await db.Events.FindAsync(id);
             if (@event == null)
             {
                 return HttpNotFound();
@@ -104,30 +80,29 @@ namespace OlwandleHotel.Controllers
         }
 
         // POST: Events/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,Title,Description,Start,End,Location,ThemeColor,IsFullDay")] Event @event)
+        public async Task<ActionResult> Edit([Bind(Include = "EventId,Title,EventPicture,Name,Description,Location,isActive")] Event @event)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(@event).State = EntityState.Modified;
-                db.SaveChanges();
-                TempData["ResultMessage"] = "Event has been successfully updated";
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(@event);
         }
 
         // GET: Events/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
+            Event @event = await db.Events.FindAsync(id);
             if (@event == null)
             {
                 return HttpNotFound();
@@ -138,12 +113,11 @@ namespace OlwandleHotel.Controllers
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Event @event = db.Events.Find(id);
+            Event @event = await db.Events.FindAsync(id);
             db.Events.Remove(@event);
-            db.SaveChanges();
-            TempData["ResultMessage"] = "Event has been successfully Removed";
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

@@ -253,6 +253,18 @@
     <Compile Include="Migrations\202111031232500_Events.designer.cs">
       <DependentUpon>202111031232500_Events.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111040744578_Event.cs" />
+    <Compile Include="Migrations\202111040744578_Event.designer.cs">
+      <DependentUpon>202111040744578_Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040755198_Event1.cs" />
+    <Compile Include="Migrations\202111040755198_Event1.designer.cs">
+      <DependentUpon>202111040755198_Event1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040757398_NewEvents.cs" />
+    <Compile Include="Migrations\202111040757398_NewEvents.designer.cs">
+      <DependentUpon>202111040757398_NewEvents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -408,6 +420,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111031232500_Events.resx">
       <DependentUpon>202111031232500_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040744578_Event.resx">
+      <DependentUpon>202111040744578_Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040755198_Event1.resx">
+      <DependentUpon>202111040755198_Event1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040757398_NewEvents.resx">
+      <DependentUpon>202111040757398_NewEvents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

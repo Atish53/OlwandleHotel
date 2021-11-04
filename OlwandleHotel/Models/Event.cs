@@ -17,30 +17,21 @@ namespace OlwandleHotel.Models
         [Display(Name = "Event Title")]
         public string Title { get; set; }
 
+        [Display(Name = "Picture")]
+        public byte[] EventPicture { get; set; }
+
+        [Required]
+        [Display(Name = "Event Name")]
+        public string Name { get; set; }
+
         [Required]
         [Display(Name = "Event Description")]
         public string Description { get; set; }
 
         [Required]
-        [Display(Name = "Date and Start Time")]
-        [DataType(DataType.DateTime)]
-
-        public DateTime Start { get; set; }
-        [Required]
-        [Display(Name = "Date and End Time")]
-
-
-        [DataType(DataType.DateTime)]
-        public DateTime End { get; set; }
-
-        [Required]
         [Display(Name = "Event Venue")]
         public string Location { get; set; }
 
-        [Required]
-        [Display(Name = "Event Priority")]
-        public string ThemeColor { get; set; }
-
-        public bool IsFullDay { get; set; }
+        public bool isActive { get; set; }
     }
 }

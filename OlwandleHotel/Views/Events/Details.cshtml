@@ -4,18 +4,31 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+
+<h2>Detailed View</h2>
 
 <div>
-    <h4>Event</h4>
+    <h3>An in-depth description of this image...</h3>
+    <p class="text-info text-center">The name, description, tags, download link and confidence of accuracy are provided below. </p>
     <hr />
+    <div class="col-md-offset-2 col-md-10" style="left: 11.5%;">
+        <img src="@Model.ImageURI" class="img-rounded" style="min-width: 360px; max-width: 480px; width: 480px; min-height: 200px; max-height: 280px; height: 280px; background-size: contain;">
+    </div>
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURI)
+        </dt>
+
+        <dd>
+            <a href="@Model.ImageURI">@Model.ImageURI</a>
         </dd>
 
         <dt>
@@ -27,48 +40,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Start)
+            @Html.DisplayNameFor(model => model.Tags)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Start)
+            @Html.DisplayFor(model => model.Tags)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.End)
+            @Html.DisplayName("Confidence in accuracy")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.End)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ThemeColor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ThemeColor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsFullDay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsFullDay)
+            @Html.DisplayFor(model => model.PercentageAccuracy)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Events", "Index")
 </p>
