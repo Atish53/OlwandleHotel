@@ -195,6 +195,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
@@ -244,9 +245,18 @@
     <Compile Include="Migrations\202110180225487_ent.designer.cs">
       <DependentUpon>202110180225487_ent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111031215213_New1.cs" />
+    <Compile Include="Migrations\202111031215213_New1.designer.cs">
+      <DependentUpon>202111031215213_New1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111031232500_Events.cs" />
+    <Compile Include="Migrations\202111031232500_Events.designer.cs">
+      <DependentUpon>202111031232500_Events.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\FinalizedBookingDetail.cs" />
     <Compile Include="Models\FinalizedBooking.cs" />
     <Compile Include="Models\Hotel.cs" />
@@ -339,6 +349,11 @@
     <Content Include="Views\Payment\Notify.cshtml" />
     <Content Include="Views\ReservedBookings\Payment.cshtml" />
     <Content Include="Views\ReservedBookings\PreviouslyReserved.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -387,6 +402,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110180225487_ent.resx">
       <DependentUpon>202110180225487_ent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111031215213_New1.resx">
+      <DependentUpon>202111031215213_New1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111031232500_Events.resx">
+      <DependentUpon>202111031232500_Events.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

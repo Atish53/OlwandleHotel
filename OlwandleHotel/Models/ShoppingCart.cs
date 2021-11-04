@@ -154,7 +154,7 @@ namespace OlwandleHotel.Models
                 {
                     ProductId = item.ProductId,
                     SaleId = sale.SaleId,
-                    UnitPrice = Convert.ToDecimal(item.Product.Price),
+                    UnitPrice = item.Product.Price,
                     Quantity = item.Count
                 };
                 // Set the order total of the shopping cart
