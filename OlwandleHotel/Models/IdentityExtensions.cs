@@ -21,7 +21,14 @@ namespace OlwandleHotel.Models
 
         public static string GetIDNumber(this IIdentity identity)
         {
-            var claim = ((ClaimsIdentity)identity).FindFirst("IDNumber");
+            var claim = ((ClaimsIdentity)identity).FindFirst("IdNumber");
+            // Test for null to avoid issues during local testing
+            return (claim != null) ? claim.Value : string.Empty;
+        }
+
+        public static string GetAddress(this IIdentity identity)
+        {
+            var claim = ((ClaimsIdentity)identity).FindFirst("Address");
             // Test for null to avoid issues during local testing
             return (claim != null) ? claim.Value : string.Empty;
         }

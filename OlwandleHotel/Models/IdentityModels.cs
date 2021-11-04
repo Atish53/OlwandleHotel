@@ -12,15 +12,24 @@ namespace OlwandleHotel.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string IDNumber { get; set; }
+        public string IdNumber { get; set; }
+        public string Address { get; set; }
+
+        public double CurrentCredit { get; set; } //
+
         public List<ReservedBooking> ReservedBookings { get; set; }
         public List<FinalizedBooking> FinalizedBookings { get; set; }
+        public List<EventBooking> EventBookings { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim("FirstName", FirstName));
+            userIdentity.AddClaim(new Claim("LastName", LastName));
+            userIdentity.AddClaim(new Claim("Address", Address));
+            userIdentity.AddClaim(new Claim("IdNumber", IdNumber));
             return userIdentity;
         }
     }
@@ -38,6 +47,7 @@ namespace OlwandleHotel.Models
         public DbSet<Sale> Sales { get; set; }
         public DbSet<SaleDetail> SaleDetails { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<EventBooking> EventBookings { get; set; }
         
 
         public ApplicationDbContext()

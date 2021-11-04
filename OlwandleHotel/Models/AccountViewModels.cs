@@ -67,7 +67,7 @@ namespace OlwandleHotel.Models
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public string Email { get; set; }        
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -91,7 +91,11 @@ namespace OlwandleHotel.Models
         [Required]
         [StringLength(13, ErrorMessage = "Invalid Identity Number.", MinimumLength = 13)]
         [Display(Name = "Identity Number")]
-        public string  IDNumber { get; set; }
+        public string  IdNumber { get; set; }
+
+        [Required]        
+        [Display(Name = "Address")]
+        public string Address { get; set; }
 
         public List<FinalizedBooking> FinalizedBookings { get; set; }
         public List<ReservedBooking> ReservedBookings { get; set; }

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OlwandleHotel.Models.EventBooking>
+@using OlwandleHotel.Models
+
+@{
+    ViewBag.Title = "My Events";
+    Layout = "~/Views/Shared/_TempLayout.cshtml";
+}
+
+<h2>Previously Booked Events</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateBooked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Where(x => x.CustomerName == User.Identity.GetFirstName()))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateBooked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.Price)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h1>Refund and print ticket will be added soon...</h1>

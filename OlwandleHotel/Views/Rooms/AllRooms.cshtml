@@ -15,12 +15,12 @@
 {
     <div class="col-md-2 table-bordered" style="width:inherit; height:550px">
         <div class="row" style="text-align:center;padding 13px;">
-            <h2 style="text-align: center">@item.RoomLocation - @item.NumBeds Bedroom Hotel Room</h2>
+            <h2 style="text-align: center">@item.Hotel.HotelName - @item.NumBeds Bedroom Hotel Room</h2>
         </div>
         <div class="row" style="text-align: center;padding-top:13px">
-            @if (item.Picture != null)
+            @if (item.RoomPicture != null)
             {
-                var base64 = Convert.ToBase64String(inArray: item.Picture);
+                var base64 = Convert.ToBase64String(inArray: item.RoomPicture);
                 var imgSrc = string.Format(format: "data:image/gif;base64,{0}", arg0: base64);
                 <img src="@imgSrc" width="400" height="250 " />
             }

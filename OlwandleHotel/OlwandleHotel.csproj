@@ -265,10 +265,23 @@
     <Compile Include="Migrations\202111040757398_NewEvents.designer.cs">
       <DependentUpon>202111040757398_NewEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111040824525_Tickets.cs" />
+    <Compile Include="Migrations\202111040824525_Tickets.designer.cs">
+      <DependentUpon>202111040824525_Tickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111041154124_SomeUpdates.cs" />
+    <Compile Include="Migrations\202111041154124_SomeUpdates.designer.cs">
+      <DependentUpon>202111041154124_SomeUpdates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111041211538_SomeAccountAdditions.cs" />
+    <Compile Include="Migrations\202111041211538_SomeAccountAdditions.designer.cs">
+      <DependentUpon>202111041211538_SomeAccountAdditions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventBooking.cs" />
     <Compile Include="Models\FinalizedBookingDetail.cs" />
     <Compile Include="Models\FinalizedBooking.cs" />
     <Compile Include="Models\Hotel.cs" />
@@ -366,6 +379,7 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Manage\MyEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -429,6 +443,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111040757398_NewEvents.resx">
       <DependentUpon>202111040757398_NewEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040824525_Tickets.resx">
+      <DependentUpon>202111040824525_Tickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111041154124_SomeUpdates.resx">
+      <DependentUpon>202111041154124_SomeUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111041211538_SomeAccountAdditions.resx">
+      <DependentUpon>202111041211538_SomeAccountAdditions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

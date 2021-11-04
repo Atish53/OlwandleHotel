@@ -39,15 +39,17 @@
                             <div class="modal-body">
                                 <img src="data:image;base64,@System.Convert.ToBase64String(item.EventPicture)" width="100%" height="100%" />
                                 <br />
-                                <br />
-                                <p class="text-danger text-center text-capitalize">Event Description:</p>
-                                <p class="text-center">@item.Description</p>
+                                <br />                                
                                 <p class="text-info text-center text-capitalize">Venue:</p>
                                 <p class="text-center">@item.Location</p>
+                                <p class="text-danger text-center text-capitalize">Price:</p>
+                                <p class="text-center">R @item.Price</p>
+                                <p class="text-success text-center text-capitalize">Tickets Remaining:</p>
+                                <p class="text-center">@item.TicketsRemaining</p>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Details", "Events", new { id = item.EventId })'">View And Book</button>
+                                <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Details", "Events", new { id = item.EventId })'">Book</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>

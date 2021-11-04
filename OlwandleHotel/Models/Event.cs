@@ -32,6 +32,17 @@ namespace OlwandleHotel.Models
         [Display(Name = "Event Venue")]
         public string Location { get; set; }
 
+        [Required]
+        [Display(Name = "Price")]
+        public double Price { get; set; }
+
+        [Required]
+        [Display(Name = "Tickets Left: ")]
+        public int TicketsRemaining { get; set; }
+
         public bool isActive { get; set; }
+
+        public List<EventBooking> EventBookings { get; set; }
+
     }
 }

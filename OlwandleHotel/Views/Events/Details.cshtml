@@ -5,15 +5,15 @@
 }
 
 
-<h2>Detailed View</h2>
+<h2 class="text-center">@Model.Name</h2>
+<h4 class="text-center">An in-depth description of this event...</h4>
 
 <div>
-    <h3>An in-depth description of this image...</h3>
-    <p class="text-info text-center">The name, description, tags, download link and confidence of accuracy are provided below. </p>
     <hr />
-    <div class="col-md-offset-2 col-md-10" style="left: 11.5%;">
-        <img src="@Model.ImageURI" class="img-rounded" style="min-width: 360px; max-width: 480px; width: 480px; min-height: 200px; max-height: 280px; height: 280px; background-size: contain;">
+    <div class="col-md-offset-2 col-md-10" style=" left:11.5%; padding-bottom: 30px">
+        <img src="data:image;base64,@System.Convert.ToBase64String(Model.EventPicture)" class="img-rounded" style="min-width: 360px; max-width: 480px; width: 480px; min-height: 200px; max-height: 280px; height: 280px; background-size: contain;">
     </div>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -21,14 +21,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageURI)
-        </dt>
-
-        <dd>
-            <a href="@Model.ImageURI">@Model.ImageURI</a>
         </dd>
 
         <dt>
@@ -40,23 +32,33 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tags)
+            @Html.DisplayNameFor(model => model.Location)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Tags)
+            @Html.DisplayFor(model => model.Location)
         </dd>
 
         <dt>
-            @Html.DisplayName("Confidence in accuracy")
+            @Html.DisplayNameFor(model => model.Price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PercentageAccuracy)
+            @Html.DisplayFor(model => model.Price)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketsRemaining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketsRemaining)
+        </dd>
+
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to Events", "Index")
+    <a href="@Url.Action(actionName: "Book", controllerName: "Events", routeValues: new { id = Model.EventId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Book Now</a>
+    <a href="@Url.Action(actionName: "Index", controllerName: "Events")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>View Other Events</a>
 </p>
