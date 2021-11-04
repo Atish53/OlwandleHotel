@@ -165,8 +165,6 @@ namespace OlwandleHotel.Controllers
             graphics.DrawLine(linePen, startPoint, endPoint);
 
 
-
-
             MemoryStream outputStream = new MemoryStream();
             document.Save(outputStream);
             outputStream.Position = 0;
