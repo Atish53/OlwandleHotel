@@ -1,0 +1,50 @@
+﻿@model OlwandleHotel.Models.Hotel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hotel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelPicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelPicture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HotelId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

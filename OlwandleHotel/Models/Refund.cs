@@ -6,11 +6,11 @@ using System.Web;
 
 namespace OlwandleHotel.Models
 {
-    public class EventRefund
+    public class Refund
     {
         [Key]
         public int RefundId { get; set; }
-        public int EventBookingId { get; set; }
+        public string TicketNumber { get; set; }
         public string RefundReason { get; set; }
         public string RefundStatus { get; set; }
         public bool isRefundActive { get; set; }

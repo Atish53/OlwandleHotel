@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using OlwandleHotel.Models
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,7 +8,7 @@
 
 <ul class="nav navbar-nav navbar-right">
     <li>
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        @Html.ActionLink("Hello " + User.Identity.GetFirstName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
@@ -26,7 +27,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Reservations", "PreviouslyReserved", "ReservedBookings")</li>                
+                <li>@Html.ActionLink("My Events", "MyEvents", "Manage")</li>                
 
             </ul>
         </li>

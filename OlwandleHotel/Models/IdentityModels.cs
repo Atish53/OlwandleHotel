@@ -47,7 +47,7 @@ namespace OlwandleHotel.Models
         public DbSet<SaleDetail> SaleDetails { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventBooking> EventBookings { get; set; }
-        public DbSet<EventRefund> EventRefunds { get; set; }
+        public DbSet<Refund> EventRefunds { get; set; }
         
 
         public ApplicationDbContext()

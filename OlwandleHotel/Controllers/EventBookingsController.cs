@@ -107,7 +107,7 @@ namespace OlwandleHotel.Controllers
 
             Response.Clear();
             Response.ContentType = "application/force-download";
-            Response.AddHeader("content-disposition", "attachment;    filename=eTicket.pdf");
+            Response.AddHeader("content-disposition", "attachment;    filename= eTicket - " + eventBooking.TicketNumber + ".pdf");
             Response.BinaryWrite(bytesInStream);
             Response.End();
 
@@ -152,7 +152,7 @@ namespace OlwandleHotel.Controllers
 
             ViewBag.EventId = new SelectList(db.Events, "EventId", "Title", eventBooking.EventId);
             return View(eventBooking);
-        }
+        }        
 
         // GET: EventBookings/Edit/5
         public async Task<ActionResult> Edit(int? id)

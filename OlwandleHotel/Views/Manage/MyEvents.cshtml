@@ -2,10 +2,11 @@
 @using OlwandleHotel.Models
 
 @{
-    ViewBag.Title = "My Events";    
+    ViewBag.Title = "My Events";
 }
 
-<h2>Previously Booked Events</h2>
+<h2 class="text-center text-success">Booked Events</h2>
+<h4 class="text-center text-info">Your Event History</h4>
 
 <table class="table">
     <tr>
@@ -26,28 +27,25 @@
 
     @foreach (var item in Model.Where(x => x.CustomerName == User.Identity.GetFirstName()))
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Event.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DateBooked)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Event.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TicketNumber)
-    </td>
-    <td>
- 
-        @Html.ActionLink("Print Invoice", "Print", new { id = item.EventBookingId })
-        @Html.ActionLink("Details", "Details", "EventBookings", new { id = item.EventBookingId }, null)
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateBooked)
+            </td>
+            <td>
+                R @Html.DisplayFor(modelItem => item.Event.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Review", "Details", "EventBookings", new { id = item.EventBookingId }, null)
+            </td>
+        </tr>
 
     }
 
 </table>
 
-<h1>Refund and print ticket will be added soon...</h1>

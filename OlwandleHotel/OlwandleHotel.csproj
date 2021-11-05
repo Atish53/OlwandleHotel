@@ -198,6 +198,7 @@
     <Compile Include="Controllers\EventBookingsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ReservedBookingsController.cs" />
@@ -291,7 +292,7 @@
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventBooking.cs" />
-    <Compile Include="Models\EventRefund.cs" />
+    <Compile Include="Models\Refund.cs" />
     <Compile Include="Models\FinalizedBookingDetail.cs" />
     <Compile Include="Models\FinalizedBooking.cs" />
     <Compile Include="Models\Hotel.cs" />
@@ -390,16 +391,17 @@
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Manage\MyEvents.cshtml" />
-    <Content Include="Views\EventRefunds\Create.cshtml" />
-    <Content Include="Views\EventRefunds\Delete.cshtml" />
-    <Content Include="Views\EventRefunds\Details.cshtml" />
-    <Content Include="Views\EventRefunds\Edit.cshtml" />
-    <Content Include="Views\EventRefunds\Index.cshtml" />
     <Content Include="Views\EventBookings\Create.cshtml" />
     <Content Include="Views\EventBookings\Delete.cshtml" />
     <Content Include="Views\EventBookings\Details.cshtml" />
     <Content Include="Views\EventBookings\Edit.cshtml" />
     <Content Include="Views\EventBookings\Index.cshtml" />
+    <Content Include="Views\Hotels\Create.cshtml" />
+    <Content Include="Views\Hotels\Delete.cshtml" />
+    <Content Include="Views\Hotels\Details.cshtml" />
+    <Content Include="Views\Hotels\Edit.cshtml" />
+    <Content Include="Views\Hotels\Index.cshtml" />
+    <Content Include="Views\EventBookings\Refund.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

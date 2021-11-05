@@ -1,4 +1,4 @@
-﻿@model OlwandleHotel.Models.EventRefund
+﻿@model OlwandleHotel.Models.Hotel
 
 @{
     ViewBag.Title = "Delete";
@@ -8,39 +8,39 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>EventRefund</h4>
+    <h4>Hotel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.EventBooking.CustomerName)
+            @Html.DisplayNameFor(model => model.HotelPicture)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EventBooking.CustomerName)
+            @Html.DisplayFor(model => model.HotelPicture)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RefundReason)
+            @Html.DisplayNameFor(model => model.HotelLocation)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RefundReason)
+            @Html.DisplayFor(model => model.HotelLocation)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RefundStatus)
+            @Html.DisplayNameFor(model => model.HotelName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RefundStatus)
+            @Html.DisplayFor(model => model.HotelName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.isRefundActive)
+            @Html.DisplayNameFor(model => model.HotelDescription)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.isRefundActive)
+            @Html.DisplayFor(model => model.HotelDescription)
         </dd>
 
     </dl>
