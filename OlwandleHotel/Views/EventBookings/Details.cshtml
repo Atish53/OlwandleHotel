@@ -1,0 +1,112 @@
+﻿@model OlwandleHotel.Models.EventBooking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h2 class="text-center text-success">@Model.Event.Name</h2>
+<h4 class="text-center">Your Receipt For Ticket @Model.TicketNumber</h4>
+<h5 class="text-center text-info">Event Details</h5>
+
+<div>
+    <hr />
+    <div class="col-md-offset-2 col-md-10" style=" left:11.5%; padding-bottom: 30px">
+        <img src="data:image;base64,@System.Convert.ToBase64String(Model.Event.EventPicture)" class="img-rounded" style="min-width: 360px; max-width: 480px; width: 480px; min-height: 200px; max-height: 280px; height: 280px; background-size: contain;">
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.Price)
+        </dt>
+
+        <dd>
+           R  @Html.DisplayFor(model => model.Event.Price)
+        </dd>        
+    </dl>
+</div>
+<hr/>
+<h2 class="text-center text-success">Additional Details</h2>
+
+<div>
+    <h4 class="text-center text-info">Details of your Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerSurname)
+        </dd>
+                
+        <dt>
+            @Html.DisplayNameFor(model => model.IdNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdNumber)
+        </dd>        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateBooked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateBooked)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action(actionName: "Print", controllerName: "EventBookings", routeValues: new { id = Model.EventBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Print Invoice</a>
+    <a href="@Url.Action(actionName: "Refund", controllerName: "EventBookings")" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Request Refund</a>
+</p>

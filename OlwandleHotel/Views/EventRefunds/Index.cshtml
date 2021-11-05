@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OlwandleHotel.Models.EventRefund>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventBooking.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RefundReason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RefundStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isRefundActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventBooking.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RefundReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RefundStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isRefundActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RefundId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RefundId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RefundId })
+        </td>
+    </tr>
+}
+
+</table>

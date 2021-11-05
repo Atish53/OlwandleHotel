@@ -25,7 +25,7 @@ namespace OlwandleHotel.Controllers
 
         // GET: Events
         public async Task<ActionResult> Index()
-        {
+        {          
             return View(await db.Events.ToListAsync());
         }
 
@@ -74,9 +74,12 @@ namespace OlwandleHotel.Controllers
 
         public async Task<ActionResult> Book(int id) //Event Booking - id is the Event Id... Booking is stored to the EventBookings Table
         {
-            string FirstName = "Customer";
-            string LastName = "Paradise";
-            string IdNumber = "0123456789123";
+            var vFirstName = User.Identity.GetFirstName();
+            var vLastName = User.Identity.GetLastName();
+            var vIdNumber = User.Identity.GetIDNumber();
+            string FirstName = vFirstName.ToString();
+            string LastName = vLastName.ToString();
+            string IdNumber = vIdNumber.ToString();
 
             EventBooking eventBooking = new EventBooking();
             eventBooking.CustomerName = FirstName; //

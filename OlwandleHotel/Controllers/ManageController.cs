@@ -75,6 +75,12 @@ namespace OlwandleHotel.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+
+            string Name = User.Identity.GetFirstName();
+
+            int numEvents = db.EventBookings.Count(x => x.CustomerName == Name);
+
+            ViewData["Events"] = numEvents;
             return View(model);
         }
 
@@ -327,8 +333,8 @@ namespace OlwandleHotel.Controllers
 
         // GET: Events
         public async Task<ActionResult> MyEvents()
-        {
-            return View(await db.Events.ToListAsync());
+        {            
+            return View(await db.EventBookings.ToListAsync());
         }
 
         protected override void Dispose(bool disposing)

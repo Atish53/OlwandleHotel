@@ -13,7 +13,8 @@ namespace OlwandleHotel.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IdNumber { get; set; }
-        public string Address { get; set; }       
+        public string Address { get; set; }
+        public int Points { get; set; }
 
         public List<ReservedBooking> ReservedBookings { get; set; }
         public List<FinalizedBooking> FinalizedBookings { get; set; }
@@ -46,6 +47,7 @@ namespace OlwandleHotel.Models
         public DbSet<SaleDetail> SaleDetails { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventBooking> EventBookings { get; set; }
+        public DbSet<EventRefund> EventRefunds { get; set; }
         
 
         public ApplicationDbContext()

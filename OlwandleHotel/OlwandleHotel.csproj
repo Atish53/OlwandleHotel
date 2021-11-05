@@ -195,6 +195,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\EventBookingsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -277,11 +278,20 @@
     <Compile Include="Migrations\202111041211538_SomeAccountAdditions.designer.cs">
       <DependentUpon>202111041211538_SomeAccountAdditions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111041936025_Points.cs" />
+    <Compile Include="Migrations\202111041936025_Points.designer.cs">
+      <DependentUpon>202111041936025_Points.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111042023390_Event-Refund.cs" />
+    <Compile Include="Migrations\202111042023390_Event-Refund.designer.cs">
+      <DependentUpon>202111042023390_Event-Refund.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventBooking.cs" />
+    <Compile Include="Models\EventRefund.cs" />
     <Compile Include="Models\FinalizedBookingDetail.cs" />
     <Compile Include="Models\FinalizedBooking.cs" />
     <Compile Include="Models\Hotel.cs" />
@@ -380,6 +390,16 @@
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Manage\MyEvents.cshtml" />
+    <Content Include="Views\EventRefunds\Create.cshtml" />
+    <Content Include="Views\EventRefunds\Delete.cshtml" />
+    <Content Include="Views\EventRefunds\Details.cshtml" />
+    <Content Include="Views\EventRefunds\Edit.cshtml" />
+    <Content Include="Views\EventRefunds\Index.cshtml" />
+    <Content Include="Views\EventBookings\Create.cshtml" />
+    <Content Include="Views\EventBookings\Delete.cshtml" />
+    <Content Include="Views\EventBookings\Details.cshtml" />
+    <Content Include="Views\EventBookings\Edit.cshtml" />
+    <Content Include="Views\EventBookings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -452,6 +472,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111041211538_SomeAccountAdditions.resx">
       <DependentUpon>202111041211538_SomeAccountAdditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111041936025_Points.resx">
+      <DependentUpon>202111041936025_Points.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111042023390_Event-Refund.resx">
+      <DependentUpon>202111042023390_Event-Refund.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

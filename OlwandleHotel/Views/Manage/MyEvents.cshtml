@@ -2,8 +2,7 @@
 @using OlwandleHotel.Models
 
 @{
-    ViewBag.Title = "My Events";
-    Layout = "~/Views/Shared/_TempLayout.cshtml";
+    ViewBag.Title = "My Events";    
 }
 
 <h2>Previously Booked Events</h2>
@@ -19,22 +18,34 @@
         <th>
             @Html.DisplayNameFor(model => model.Event.Price)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketNumber)
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model.Where(x => x.CustomerName == User.Identity.GetFirstName()))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Event.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateBooked)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Event.Price)
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Event.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateBooked)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Event.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketNumber)
+    </td>
+    <td>
+ 
+        @Html.ActionLink("Print Invoice", "Print", new { id = item.EventBookingId })
+        @Html.ActionLink("Details", "Details", "EventBookings", new { id = item.EventBookingId }, null)
+    </td>
+</tr>
+
     }
 
 </table>
