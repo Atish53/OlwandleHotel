@@ -16,8 +16,7 @@ namespace OlwandleHotel.Models
         public string Address { get; set; }
         public int Points { get; set; }
 
-        public List<ReservedBooking> ReservedBookings { get; set; }
-        public List<FinalizedBooking> FinalizedBookings { get; set; }
+        public List<ReservedBooking> ReservedBookings { get; set; }        
         public List<EventBooking> EventBookings { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -36,9 +35,7 @@ namespace OlwandleHotel.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<ReservedBooking> ReservedBookings { get; set; }
-        public DbSet<FinalizedBooking> FinalizedBookings { get; set; }
-        public DbSet<FinalizedBookingDetail> FinalizedBookingDetails { get; set; }
+        public DbSet<ReservedBooking> ReservedBookings { get; set; }        
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }
@@ -47,7 +44,7 @@ namespace OlwandleHotel.Models
         public DbSet<SaleDetail> SaleDetails { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventBooking> EventBookings { get; set; }
-        public DbSet<Refund> EventRefunds { get; set; }
+        public DbSet<EventRefunds> EventRefunds { get; set; }
         
 
         public ApplicationDbContext()

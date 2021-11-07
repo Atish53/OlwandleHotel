@@ -39,12 +39,17 @@ namespace OlwandleHotel.Models
         [DisplayName("Living Rooms")]
         public int NumLivingRooms { get; set; } //Number of living rooms in this type of room.
 
-        [Required]
-        [DisplayName("Reservation Cost")]
-        public double FixedCost { get; set; } //Amount to pay.
+
+        public double Cost()
+        {
+            double FinalCost = NumBeds * 300 + NumBaths * 150 + NumLivingRooms * 400;
+            return FinalCost;
+        } 
+            
+        public int RoomsAvailable { get; set; }
 
         public virtual Hotel Hotel { get; set; }
 
-        public virtual List<FinalizedBookingDetail> FinalizedBookingDetails { get; set; }       
+        public virtual List<ReservedBooking> ReservedBookings { get; set; }       
     }
 }

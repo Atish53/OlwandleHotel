@@ -6,7 +6,7 @@ using System.Web;
 
 namespace OlwandleHotel.Models
 {
-    public class Refund
+    public class EventRefunds
     {
         [Key]
         public int RefundId { get; set; }

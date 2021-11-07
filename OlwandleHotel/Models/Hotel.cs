@@ -19,9 +19,9 @@ namespace OlwandleHotel.Models
 
         public string HotelName { get; set; }
 
-        public string HotelDescription { get; set; } //High....
+        public string HotelDescription { get; set; }
 
-        public virtual ICollection<Room> Rooms { get; set; }
+        public virtual Room Rooms { get; set; }
         
     }
 }

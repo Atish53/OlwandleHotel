@@ -201,100 +201,21 @@
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
-    <Compile Include="Controllers\ReservedBookingsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110171754354_Hotel-Tables.cs" />
-    <Compile Include="Migrations\202110171754354_Hotel-Tables.designer.cs">
-      <DependentUpon>202110171754354_Hotel-Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110171816097_Hotel-Types.cs" />
-    <Compile Include="Migrations\202110171816097_Hotel-Types.designer.cs">
-      <DependentUpon>202110171816097_Hotel-Types.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110171851350_Seed.cs" />
-    <Compile Include="Migrations\202110171851350_Seed.designer.cs">
-      <DependentUpon>202110171851350_Seed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110171901397_ChangeRoomModel.cs" />
-    <Compile Include="Migrations\202110171901397_ChangeRoomModel.designer.cs">
-      <DependentUpon>202110171901397_ChangeRoomModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110172153457_ModelTest.cs" />
-    <Compile Include="Migrations\202110172153457_ModelTest.designer.cs">
-      <DependentUpon>202110172153457_ModelTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110180046355_New.cs" />
-    <Compile Include="Migrations\202110180046355_New.designer.cs">
-      <DependentUpon>202110180046355_New.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110180050161_Room.cs" />
-    <Compile Include="Migrations\202110180050161_Room.designer.cs">
-      <DependentUpon>202110180050161_Room.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110180052523_Reserved.cs" />
-    <Compile Include="Migrations\202110180052523_Reserved.designer.cs">
-      <DependentUpon>202110180052523_Reserved.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110180111512_Double.cs" />
-    <Compile Include="Migrations\202110180111512_Double.designer.cs">
-      <DependentUpon>202110180111512_Double.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110180225487_ent.cs" />
-    <Compile Include="Migrations\202110180225487_ent.designer.cs">
-      <DependentUpon>202110180225487_ent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111031215213_New1.cs" />
-    <Compile Include="Migrations\202111031215213_New1.designer.cs">
-      <DependentUpon>202111031215213_New1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111031232500_Events.cs" />
-    <Compile Include="Migrations\202111031232500_Events.designer.cs">
-      <DependentUpon>202111031232500_Events.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111040744578_Event.cs" />
-    <Compile Include="Migrations\202111040744578_Event.designer.cs">
-      <DependentUpon>202111040744578_Event.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111040755198_Event1.cs" />
-    <Compile Include="Migrations\202111040755198_Event1.designer.cs">
-      <DependentUpon>202111040755198_Event1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111040757398_NewEvents.cs" />
-    <Compile Include="Migrations\202111040757398_NewEvents.designer.cs">
-      <DependentUpon>202111040757398_NewEvents.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111040824525_Tickets.cs" />
-    <Compile Include="Migrations\202111040824525_Tickets.designer.cs">
-      <DependentUpon>202111040824525_Tickets.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111041154124_SomeUpdates.cs" />
-    <Compile Include="Migrations\202111041154124_SomeUpdates.designer.cs">
-      <DependentUpon>202111041154124_SomeUpdates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111041211538_SomeAccountAdditions.cs" />
-    <Compile Include="Migrations\202111041211538_SomeAccountAdditions.designer.cs">
-      <DependentUpon>202111041211538_SomeAccountAdditions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111041936025_Points.cs" />
-    <Compile Include="Migrations\202111041936025_Points.designer.cs">
-      <DependentUpon>202111041936025_Points.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111042023390_Event-Refund.cs" />
-    <Compile Include="Migrations\202111042023390_Event-Refund.designer.cs">
-      <DependentUpon>202111042023390_Event-Refund.cs</DependentUpon>
+    <Compile Include="Migrations\202111051635358_Seed.cs" />
+    <Compile Include="Migrations\202111051635358_Seed.designer.cs">
+      <DependentUpon>202111051635358_Seed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventBooking.cs" />
-    <Compile Include="Models\Refund.cs" />
-    <Compile Include="Models\FinalizedBookingDetail.cs" />
-    <Compile Include="Models\FinalizedBooking.cs" />
+    <Compile Include="Models\EventRefunds.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\IdentityExtensions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -303,6 +224,7 @@
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ReservedBooking.cs" />
     <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\RoomBooking.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\SaleDetail.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
@@ -421,65 +343,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110171754354_Hotel-Tables.resx">
-      <DependentUpon>202110171754354_Hotel-Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110171816097_Hotel-Types.resx">
-      <DependentUpon>202110171816097_Hotel-Types.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110171851350_Seed.resx">
-      <DependentUpon>202110171851350_Seed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110171901397_ChangeRoomModel.resx">
-      <DependentUpon>202110171901397_ChangeRoomModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110172153457_ModelTest.resx">
-      <DependentUpon>202110172153457_ModelTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180046355_New.resx">
-      <DependentUpon>202110180046355_New.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180050161_Room.resx">
-      <DependentUpon>202110180050161_Room.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180052523_Reserved.resx">
-      <DependentUpon>202110180052523_Reserved.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180111512_Double.resx">
-      <DependentUpon>202110180111512_Double.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180225487_ent.resx">
-      <DependentUpon>202110180225487_ent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111031215213_New1.resx">
-      <DependentUpon>202111031215213_New1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111031232500_Events.resx">
-      <DependentUpon>202111031232500_Events.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111040744578_Event.resx">
-      <DependentUpon>202111040744578_Event.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111040755198_Event1.resx">
-      <DependentUpon>202111040755198_Event1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111040757398_NewEvents.resx">
-      <DependentUpon>202111040757398_NewEvents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111040824525_Tickets.resx">
-      <DependentUpon>202111040824525_Tickets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111041154124_SomeUpdates.resx">
-      <DependentUpon>202111041154124_SomeUpdates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111041211538_SomeAccountAdditions.resx">
-      <DependentUpon>202111041211538_SomeAccountAdditions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111041936025_Points.resx">
-      <DependentUpon>202111041936025_Points.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111042023390_Event-Refund.resx">
-      <DependentUpon>202111042023390_Event-Refund.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111051635358_Seed.resx">
+      <DependentUpon>202111051635358_Seed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
