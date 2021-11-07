@@ -95,16 +95,8 @@ namespace OlwandleHotel.Models
 
         [Required]        
         [Display(Name = "Address")]
-        public string Address { get; set; }
-
-        public List<FinalizedBooking> FinalizedBookings { get; set; }
+        public string Address { get; set; }        
         public List<ReservedBooking> ReservedBookings { get; set; }
-
-
-
-
-
-
     }
 
     public class ResetPasswordViewModel

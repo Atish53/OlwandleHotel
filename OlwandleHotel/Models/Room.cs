@@ -10,10 +10,8 @@ namespace OlwandleHotel.Models
     public class Room
     {
         [Key]
-        public int RoomId { get; set; } //Room Number        
-
-        [Required]
-        [Display(Name = "Hotel")]
+        public int RoomId { get; set; } //Room Number                
+       
         public string HotelId { get; set; }
 
         [Display(Name = "Picture")]
@@ -48,6 +46,7 @@ namespace OlwandleHotel.Models
             
         public int RoomsAvailable { get; set; }
 
+        [Required]
         public virtual Hotel Hotel { get; set; }
 
         public virtual List<ReservedBooking> ReservedBookings { get; set; }       
