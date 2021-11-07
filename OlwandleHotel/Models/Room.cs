@@ -46,6 +46,8 @@ namespace OlwandleHotel.Models
             
         public int RoomsAvailable { get; set; }
 
+        public bool isActive { get; set; }
+
         [Required]
         public virtual Hotel Hotel { get; set; }
 

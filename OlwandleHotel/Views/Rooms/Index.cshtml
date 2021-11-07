@@ -12,10 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RoomLocation)
+            @Html.DisplayNameFor(model => model.Hotel.HotelLocation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Picture)
+            @Html.DisplayNameFor(model => model.HotelId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomPicture)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RoomStatus)
@@ -33,7 +36,7 @@
             @Html.DisplayNameFor(model => model.NumLivingRooms)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FixedCost)
+            @Html.DisplayNameFor(model => model.RoomsAvailable)
         </th>
         <th></th>
     </tr>
@@ -41,10 +44,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RoomLocation)
+            @Html.DisplayFor(modelItem => item.Hotel.HotelLocation)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Picture)
+            @Html.DisplayFor(modelItem => item.HotelId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomPicture)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RoomStatus)
@@ -62,7 +68,7 @@
             @Html.DisplayFor(modelItem => item.NumLivingRooms)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FixedCost)
+            @Html.DisplayFor(modelItem => item.RoomsAvailable)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RoomId }) |

@@ -16,7 +16,7 @@ namespace OlwandleHotel.Models
         public string Address { get; set; }
         public int Points { get; set; }
 
-        public List<ReservedBooking> ReservedBookings { get; set; }        
+        public List<RoomBooking> RoomBookings { get; set; }        
         public List<EventBooking> EventBookings { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -56,5 +56,7 @@ namespace OlwandleHotel.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<OlwandleHotel.Models.RoomBooking> RoomBookings { get; set; }
     }
 }

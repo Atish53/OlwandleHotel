@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\RoomBookingsController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -209,6 +210,14 @@
     <Compile Include="Migrations\202111071020556_Empty.cs" />
     <Compile Include="Migrations\202111071020556_Empty.designer.cs">
       <DependentUpon>202111071020556_Empty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111071025512_Room.cs" />
+    <Compile Include="Migrations\202111071025512_Room.designer.cs">
+      <DependentUpon>202111071025512_Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111071054246_isActivr.cs" />
+    <Compile Include="Migrations\202111071054246_isActivr.designer.cs">
+      <DependentUpon>202111071054246_isActivr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -324,6 +333,11 @@
     <Content Include="Views\Hotels\Edit.cshtml" />
     <Content Include="Views\Hotels\Index.cshtml" />
     <Content Include="Views\EventBookings\Refund.cshtml" />
+    <Content Include="Views\RoomBookings\Create.cshtml" />
+    <Content Include="Views\RoomBookings\Delete.cshtml" />
+    <Content Include="Views\RoomBookings\Details.cshtml" />
+    <Content Include="Views\RoomBookings\Edit.cshtml" />
+    <Content Include="Views\RoomBookings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -345,6 +359,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202111071020556_Empty.resx">
       <DependentUpon>202111071020556_Empty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111071025512_Room.resx">
+      <DependentUpon>202111071025512_Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111071054246_isActivr.resx">
+      <DependentUpon>202111071054246_isActivr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

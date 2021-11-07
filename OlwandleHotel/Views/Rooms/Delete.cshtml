@@ -12,19 +12,27 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.RoomLocation)
+            @Html.DisplayNameFor(model => model.Hotel.HotelLocation)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RoomLocation)
+            @Html.DisplayFor(model => model.Hotel.HotelLocation)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Picture)
+            @Html.DisplayNameFor(model => model.HotelId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Picture)
+            @Html.DisplayFor(model => model.HotelId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomPicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomPicture)
         </dd>
 
         <dt>
@@ -68,11 +76,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FixedCost)
+            @Html.DisplayNameFor(model => model.RoomsAvailable)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FixedCost)
+            @Html.DisplayFor(model => model.RoomsAvailable)
         </dd>
 
     </dl>
