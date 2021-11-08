@@ -12,6 +12,7 @@ using System.IO;
 using Syncfusion.Pdf.Graphics;
 using System.Drawing;
 using Syncfusion.Pdf;
+using QRCoder;
 
 namespace OlwandleHotel.Controllers
 {
@@ -26,7 +27,40 @@ namespace OlwandleHotel.Controllers
             return View(await eventBookings.ToListAsync());
         }
 
+        ///QR Code
+        ///
 
+        public async Task<ActionResult> QRCoder(int id) //Event Booking - id is the Event Id... Booking is stored to the EventBookings Table
+        {
+            EventBooking eventBooking = await db.EventBookings.FindAsync(id);
+
+            string code = eventBooking.TicketNumber;
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
+            imgBarCode.Height = 150;
+            imgBarCode.Width = 150;
+            using (Bitmap bitMap = qrCode.GetGraphic(20))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    byte[] byteImage = ms.ToArray();
+                    imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
+                    
+                    Response.Clear();
+                    Response.ContentType = "application/force-download";
+                    Response.AddHeader("content-disposition", "attachment;    filename= eTicket QR Code - " + eventBooking.TicketNumber + ".bmp");
+                    Response.BinaryWrite(byteImage);
+                    Response.End();
+
+                    return View();
+                }
+            }            
+        }
+
+        //Print
         public async Task<ActionResult> Print(int id) //Event Booking - id is the Event Id... Booking is stored to the EventBookings Table
         {
             EventBooking eventBooking = await db.EventBookings.FindAsync(id);

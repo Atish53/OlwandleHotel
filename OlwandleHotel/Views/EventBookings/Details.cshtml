@@ -109,5 +109,6 @@
 <p>
     <a href="@Url.Action(actionName: "MyEvents", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Event History</a>
     <a href="@Url.Action(actionName: "Print", controllerName: "EventBookings", routeValues: new { id = Model.EventBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download Invoice</a>
+    <a href="@Url.Action(actionName: "QRCoder", controllerName: "EventBookings", routeValues: new { id = Model.EventBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download QR Code</a>
     <a href="@Url.Action(actionName: "Refund", controllerName: "Refunds", routeValues: new { id = Model.EventBookingId })" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Request Refund</a>
 </p>
