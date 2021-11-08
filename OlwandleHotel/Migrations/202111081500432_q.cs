@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Empty : DbMigration
+    public partial class q : DbMigration
     {
         public override void Up()
         {
@@ -108,26 +108,28 @@
                         HotelLocation = c.String(),
                         HotelName = c.String(),
                         HotelDescription = c.String(),
+                        Rooms_RoomId = c.Int(),
                     })
-                .PrimaryKey(t => t.HotelId);
+                .PrimaryKey(t => t.HotelId)
+                .ForeignKey("dbo.Rooms", t => t.Rooms_RoomId)
+                .Index(t => t.Rooms_RoomId);
             
             CreateTable(
                 "dbo.Rooms",
                 c => new
                     {
-                        RoomId = c.Int(nullable: false),
-                        HotelId = c.String(),
+                        RoomId = c.Int(nullable: false, identity: true),
                         RoomPicture = c.Binary(),
+                        RoomLocation = c.String(nullable: false),
                         RoomStatus = c.Boolean(nullable: false),
                         MaxOccupants = c.Int(nullable: false),
                         NumBeds = c.Int(nullable: false),
                         NumBaths = c.Int(nullable: false),
                         NumLivingRooms = c.Int(nullable: false),
                         RoomsAvailable = c.Int(nullable: false),
+                        isActive = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.RoomId)
-                .ForeignKey("dbo.Hotels", t => t.RoomId)
-                .Index(t => t.RoomId);
+                .PrimaryKey(t => t.RoomId);
             
             CreateTable(
                 "dbo.ReservedBookings",
@@ -139,13 +141,10 @@
                         IDNumber = c.String(),
                         RoomId = c.Int(nullable: false),
                         ReservedCost = c.Double(nullable: false),
-                        ApplicationUser_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.ReservedBookingId)
                 .ForeignKey("dbo.Rooms", t => t.RoomId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
-                .Index(t => t.RoomId)
-                .Index(t => t.ApplicationUser_Id);
+                .Index(t => t.RoomId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -169,6 +168,27 @@
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.RoomBookings",
+                c => new
+                    {
+                        RoomBookingId = c.Int(nullable: false, identity: true),
+                        RoomId = c.Int(nullable: false),
+                        CustomerName = c.String(),
+                        CustomerSurname = c.String(),
+                        Address = c.String(),
+                        IdNumber = c.String(),
+                        PhoneNumber = c.String(),
+                        DateBooked = c.DateTime(nullable: false),
+                        InvoiceNumber = c.String(),
+                        ApplicationUser_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.RoomBookingId)
+                .ForeignKey("dbo.Rooms", t => t.RoomId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
+                .Index(t => t.RoomId)
+                .Index(t => t.ApplicationUser_Id);
             
             CreateTable(
                 "dbo.SaleDetails",
@@ -251,16 +271,17 @@
         
         public override void Down()
         {
+            DropForeignKey("dbo.RoomBookings", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.ReservedBookings", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.EventBookings", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.SaleDetails", "SaleId", "dbo.Sales");
             DropForeignKey("dbo.SaleDetails", "ProductId", "dbo.Products");
+            DropForeignKey("dbo.RoomBookings", "RoomId", "dbo.Rooms");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Hotels", "Rooms_RoomId", "dbo.Rooms");
             DropForeignKey("dbo.ReservedBookings", "RoomId", "dbo.Rooms");
-            DropForeignKey("dbo.Rooms", "RoomId", "dbo.Hotels");
             DropForeignKey("dbo.EventRefunds", "EventBooking_EventBookingId", "dbo.EventBookings");
             DropForeignKey("dbo.EventBookings", "EventId", "dbo.Events");
             DropForeignKey("dbo.Carts", "ProductId", "dbo.Products");
@@ -270,12 +291,13 @@
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.SaleDetails", new[] { "ProductId" });
             DropIndex("dbo.SaleDetails", new[] { "SaleId" });
+            DropIndex("dbo.RoomBookings", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.RoomBookings", new[] { "RoomId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.ReservedBookings", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.ReservedBookings", new[] { "RoomId" });
-            DropIndex("dbo.Rooms", new[] { "RoomId" });
+            DropIndex("dbo.Hotels", new[] { "Rooms_RoomId" });
             DropIndex("dbo.EventRefunds", new[] { "EventBooking_EventBookingId" });
             DropIndex("dbo.EventBookings", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.EventBookings", new[] { "EventId" });
@@ -286,6 +308,7 @@
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Sales");
             DropTable("dbo.SaleDetails");
+            DropTable("dbo.RoomBookings");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.ReservedBookings");

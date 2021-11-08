@@ -7,13 +7,13 @@ namespace OlwandleHotel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class qr : IMigrationMetadata
+    public sealed partial class q : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(qr));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(q));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111081443432_qr"; }
+            get { return "202111081500432_q"; }
         }
         
         string IMigrationMetadata.Source

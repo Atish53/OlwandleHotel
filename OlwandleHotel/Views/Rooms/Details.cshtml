@@ -1,0 +1,98 @@
+﻿@model OlwandleHotel.Models.Room
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomPicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomPicture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxOccupants)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxOccupants)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumBeds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumBeds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumBaths)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumBaths)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumLivingRooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumLivingRooms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomsAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomsAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

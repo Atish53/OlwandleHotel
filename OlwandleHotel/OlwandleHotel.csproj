@@ -209,24 +209,21 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\RoomBookingsController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111071020556_Empty.cs" />
-    <Compile Include="Migrations\202111071020556_Empty.designer.cs">
-      <DependentUpon>202111071020556_Empty.cs</DependentUpon>
+    <Compile Include="Migrations\202111081500432_q.cs" />
+    <Compile Include="Migrations\202111081500432_q.designer.cs">
+      <DependentUpon>202111081500432_q.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111071025512_Room.cs" />
-    <Compile Include="Migrations\202111071025512_Room.designer.cs">
-      <DependentUpon>202111071025512_Room.cs</DependentUpon>
+    <Compile Include="Migrations\202111081605031_Mig.cs" />
+    <Compile Include="Migrations\202111081605031_Mig.designer.cs">
+      <DependentUpon>202111081605031_Mig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111071054246_isActivr.cs" />
-    <Compile Include="Migrations\202111071054246_isActivr.designer.cs">
-      <DependentUpon>202111071054246_isActivr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111081443432_qr.cs" />
-    <Compile Include="Migrations\202111081443432_qr.designer.cs">
-      <DependentUpon>202111081443432_qr.cs</DependentUpon>
+    <Compile Include="Migrations\202111081606456_roomNumber.cs" />
+    <Compile Include="Migrations\202111081606456_roomNumber.designer.cs">
+      <DependentUpon>202111081606456_roomNumber.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -341,6 +338,11 @@
     <Content Include="Views\RoomBookings\Details.cshtml" />
     <Content Include="Views\RoomBookings\Edit.cshtml" />
     <Content Include="Views\RoomBookings\Index.cshtml" />
+    <Content Include="Views\Rooms\Create.cshtml" />
+    <Content Include="Views\Rooms\Delete.cshtml" />
+    <Content Include="Views\Rooms\Details.cshtml" />
+    <Content Include="Views\Rooms\Edit.cshtml" />
+    <Content Include="Views\Rooms\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -360,17 +362,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111071020556_Empty.resx">
-      <DependentUpon>202111071020556_Empty.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111081500432_q.resx">
+      <DependentUpon>202111081500432_q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111071025512_Room.resx">
-      <DependentUpon>202111071025512_Room.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111081605031_Mig.resx">
+      <DependentUpon>202111081605031_Mig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111071054246_isActivr.resx">
-      <DependentUpon>202111071054246_isActivr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111081443432_qr.resx">
-      <DependentUpon>202111081443432_qr.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111081606456_roomNumber.resx">
+      <DependentUpon>202111081606456_roomNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

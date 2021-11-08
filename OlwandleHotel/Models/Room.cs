@@ -15,12 +15,18 @@ namespace OlwandleHotel.Models
         [Display(Name = "Picture")]
         public byte[] RoomPicture { get; set; }
 
-        [Required]        
+        [Required]
+        [Display(Name = "Hotel")]
         public string RoomLocation { get; set; } //Room Location
 
         [Required]
-        [DisplayName("Room Status")]
-        public bool RoomStatus { get; set; }
+        [Display(Name = "Address")]
+        public string RoomAddress { get; set; } //Room Address
+
+
+        [Required]
+        [DisplayName("Room Number")]
+        public int RoomNumber { get; set; }
 
         [Required]
         [DisplayName("Sleeps")]
@@ -49,6 +55,6 @@ namespace OlwandleHotel.Models
 
         public bool isActive { get; set; }
 
-        public virtual List<ReservedBooking> ReservedBookings { get; set; }       
+        public virtual List<Room> Rooms { get; set; }       
     }
 }

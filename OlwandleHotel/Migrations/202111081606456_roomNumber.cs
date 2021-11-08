@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class isActivr : DbMigration
+    public partial class roomNumber : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Rooms", "isActive", c => c.Boolean(nullable: false));
+            AlterColumn("dbo.Rooms", "RoomNumber", c => c.Int(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Rooms", "isActive");
+            AlterColumn("dbo.Rooms", "RoomNumber", c => c.Boolean(nullable: false));
         }
     }
 }
