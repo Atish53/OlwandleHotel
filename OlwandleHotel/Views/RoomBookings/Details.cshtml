@@ -8,6 +8,24 @@
 <h4 class="text-center">Your Receipt For Booking @Model.InvoiceNumber</h4>
 <h5 class="text-center text-info">Event Details</h5>
 
+@if (Model.CheckinDate == null)
+{
+    <h1 class="text-center text-warning">You have not checked into your room yet.</h1>
+}
+else
+{
+    <h1 class="text-center text-info">You've checked-in on the @Model.CheckinDate</h1>
+}
+
+@if (Model.CheckoutDate == null)
+{
+
+}
+else
+{
+    <h1 class="text-center text-danger">You've checked-out on the @Model.CheckoutDate</h1>
+}
+
 <div>
     <hr />
     <div class="col-md-offset-2 col-md-10" style=" left:11.5%; padding-bottom: 30px">
@@ -121,13 +139,90 @@
             frameborder="0" style="position : relative; left : 15%;"
             src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@Model.Room.RoomAddress'&destination='@Model.Address'&avoid=tolls|highways" allowfullscreen>
     </iframe>
-    <br/>
-    <br/>
+    <br />
+    <br />
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="@Model.RoomBookingId" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Confirm Check-In: @Model.Room.NumBeds Room At @Model.Room.RoomLocation</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="data:image;base64,@System.Convert.ToBase64String(Model.Room.RoomPicture)" width="100%" height="100%" />
+                    <br />
+                    <br />
+                    <p class="text-info text-center text-capitalize">Address:</p>
+                    <p class="text-center">@Model.Room.RoomAddress</p>
+                    <p class="text-danger text-center text-capitalize">Price:</p>
+                    <p class="text-center">R @Model.Room.Cost</p>
+                    <p class="text-success text-center text-capitalize">Booked On:</p>
+                    <p class="text-center">@Model.DateBooked</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("CheckIn", "RoomBookings", new { id = Model.RoomBookingId })'">Confirm Check-In</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="@Model.IdNumber" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Confirm Check-Out: @Model.Room.NumBeds Room At @Model.Room.RoomLocation</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="data:image;base64,@System.Convert.ToBase64String(Model.Room.RoomPicture)" width="100%" height="100%" />
+                    <br />
+                    <br />
+                    <p class="text-info text-center text-capitalize">Address:</p>
+                    <p class="text-center">@Model.Room.RoomAddress</p>
+                    <p class="text-danger text-center text-capitalize">Price:</p>
+                    <p class="text-center">R @Model.Room.Cost</p>
+                    <p class="text-success text-center text-capitalize">Booked On:</p>
+                    <p class="text-center">@Model.DateBooked</p>
+                    <p class="text-success text-center text-capitalize">Checked-In On:</p>
+                    <p class="text-center">@Model.CheckinDate</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("CheckOut", "RoomBookings", new { id = Model.RoomBookingId })'">Confirm Check-Out</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>
 <p>
     <a href="@Url.Action(actionName: "MyEvents", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Event History</a>
     <a href="@Url.Action(actionName: "Print", controllerName: "RoomBookings", routeValues: new { id = Model.RoomBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download Invoice</a>
-    <a href="@Url.Action(actionName: "QRCoder", controllerName: "RoomBookings", routeValues: new { id = Model.RoomBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download QR Code</a>
-    <a href="@Url.Action(actionName: "Refund", controllerName: "Refunds", routeValues: new { id = Model.RoomBookingId })" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Request Refund</a>
+    @if (Model.CheckinDate == null)
+    {
+        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#@Model.RoomBookingId"><i class="fa fa-shopping-cart"></i>Check-In</a>
+    }
+    else if (Model.CheckoutDate == null)
+    {
+        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#@Model.IdNumber"><i class="fa fa-shopping-cart"></i>Check-Out</a>
+    }
+    else
+    {
+
+    }
+    <a href="@Url.Action(actionName: "Order", controllerName: "EventBookings", routeValues: new { id = Model.RoomBookingId })" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Order Room Service</a>
+    <a href="@Url.Action(actionName: "Review", controllerName: "EventBookings", routeValues: new { id = Model.RoomBookingId })" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Review Stay</a>
+    
 </p>

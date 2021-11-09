@@ -337,6 +337,13 @@ namespace OlwandleHotel.Controllers
             return View(await db.EventBookings.ToListAsync());
         }
 
+        // GET: RoomBookings
+        public async Task<ActionResult> MyRoomBookings()
+        {
+            return View(await db.RoomBookings.ToListAsync());
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)
