@@ -370,6 +370,8 @@
     <Content Include="Views\Quotes\Details.cshtml" />
     <Content Include="Views\Quotes\Edit.cshtml" />
     <Content Include="Views\Quotes\Index.cshtml" />
+    <Content Include="Views\Rooms\Book.cshtml" />
+    <Content Include="Views\Manage\MyRoomBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

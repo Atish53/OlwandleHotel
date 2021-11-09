@@ -40,7 +40,7 @@ namespace OlwandleHotel.Controllers
         public ActionResult Create()
         {
             return View();
-        }
+        }        
 
         // POST: Hotels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 

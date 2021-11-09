@@ -1,7 +1,7 @@
 ﻿@model OlwandleHotel.Models.Room
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Details";    
 }
 
 <h2 class="text-center">@Model.NumBeds Bedroom Suite At @Model.RoomLocation</h2>
@@ -66,11 +66,21 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Cost)
+            R @Html.DisplayFor(model => model.Cost)
         </dd>
+                
+        <dt>
+            <label for="NumNights">Staying For:</label>            
+        </dt> 
         
-    </dl>
+        <dd>
+            <input type="text" name="NumNights" value="" /> Nights.
+        </dd>    
+       
+</dl>
 </div>
+
+
 
 <h2 class="text-center text-success">Location: </h2>
 <iframe width="800"
@@ -79,15 +89,11 @@
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@ViewBag.CurrentLocation'&destination='@ViewBag.DeliveryAddress'&avoid=tolls|highways" allowfullscreen>
 </iframe>
 
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
 
 <p>
-    <a href="@Url.Action(actionName: "Book", controllerName: "Rooms", routeValues: new { id = Model.RoomId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Book Now</a>
+    <a href="@Url.Action(actionName: "Book", controllerName: "Rooms", routeValues: new { id = Model.RoomId, numNights = 3 })" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Book Now</a>
     <a href="@Url.Action(actionName: "Index", controllerName: "Rooms")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>View Other Events</a>
 </p>
-
-<form>
-    <input type="text" id="numNights" name="numNights" value="Enter Your Required Number Of Nights">
-</form>  

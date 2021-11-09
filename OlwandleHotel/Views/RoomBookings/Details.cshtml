@@ -4,18 +4,81 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center text-success">@Model.Room.NumBeds Room At @Model.Room.RoomLocation</h2>
+<h4 class="text-center">Your Receipt For Booking @Model.InvoiceNumber</h4>
+<h5 class="text-center text-info">Event Details</h5>
 
 <div>
-    <h4>RoomBooking</h4>
+    <hr />
+    <div class="col-md-offset-2 col-md-10" style=" left:11.5%; padding-bottom: 30px">
+        <img src="data:image;base64,@System.Convert.ToBase64String(Model.Room.RoomPicture)" class="img-rounded" style="min-width: 360px; max-width: 480px; width: 480px; min-height: 200px; max-height: 280px; height: 280px; background-size: contain;">
+    </div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.RoomId)
+            @Html.DisplayNameFor(model => model.Room.RoomNumber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Room.RoomId)
+            @Html.DisplayFor(model => model.Room.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room.RoomLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.RoomLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room.RoomAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.RoomAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room.NumLivingRooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.NumLivingRooms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room.NumBeds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.NumBeds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room.NumBaths)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.NumBaths)
+        </dd>
+
+
+    </dl>
+</div>
+<hr />
+<h2 class="text-center text-success">Additional Details</h2>
+
+<div>
+    <h4 class="text-center text-info">Details of your Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceNumber)
         </dd>
 
         <dt>
@@ -35,27 +98,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.IdNumber)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.IdNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
 
         <dt>
@@ -66,17 +113,21 @@
             @Html.DisplayFor(model => model.DateBooked)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.InvoiceNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InvoiceNumber)
-        </dd>
-
     </dl>
+
+    <h2 class="text-center text-success">Waypoint: </h2>
+    <iframe width="800"
+            height="480"
+            frameborder="0" style="position : relative; left : 15%;"
+            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@Model.Room.RoomAddress'&destination='@Model.Address'&avoid=tolls|highways" allowfullscreen>
+    </iframe>
+    <br/>
+    <br/>
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomBookingId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action(actionName: "MyEvents", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Event History</a>
+    <a href="@Url.Action(actionName: "Print", controllerName: "RoomBookings", routeValues: new { id = Model.RoomBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download Invoice</a>
+    <a href="@Url.Action(actionName: "QRCoder", controllerName: "RoomBookings", routeValues: new { id = Model.RoomBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download QR Code</a>
+    <a href="@Url.Action(actionName: "Refund", controllerName: "Refunds", routeValues: new { id = Model.RoomBookingId })" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Request Refund</a>
 </p>

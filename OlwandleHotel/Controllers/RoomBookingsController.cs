@@ -36,6 +36,73 @@ namespace OlwandleHotel.Controllers
             }
             return View(roomBooking);
         }
+             
+        
+        // GET: RoomBookings/Edit/5
+        public async Task<ActionResult> CheckIn(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            RoomBooking roomBooking = await db.RoomBookings.FindAsync(id);
+            if (roomBooking == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.RoomId = new SelectList(db.Rooms, "RoomId", "HotelId", roomBooking.RoomId);
+            return View(roomBooking);
+        }
+
+        // POST: RoomBookings/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CheckIn([Bind(Include = "RoomBookingId,RoomId,CustomerName,CustomerSurname,Address,IdNumber,PhoneNumber,DateBooked,InvoiceNumber")] RoomBooking roomBooking)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(roomBooking).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewBag.RoomId = new SelectList(db.Rooms, "RoomId", "HotelId", roomBooking.RoomId);
+            return View(roomBooking);
+        }
+
+        // GET: RoomBookings/Edit/5
+        public async Task<ActionResult> CheckOut(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            RoomBooking roomBooking = await db.RoomBookings.FindAsync(id);
+            if (roomBooking == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.RoomId = new SelectList(db.Rooms, "RoomId", "HotelId", roomBooking.RoomId);
+            return View(roomBooking);
+        }
+
+        // POST: RoomBookings/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CheckOut([Bind(Include = "RoomBookingId,RoomId,CustomerName,CustomerSurname,Address,IdNumber,PhoneNumber,DateBooked,InvoiceNumber")] RoomBooking roomBooking)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(roomBooking).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewBag.RoomId = new SelectList(db.Rooms, "RoomId", "HotelId", roomBooking.RoomId);
+            return View(roomBooking);
+        }
 
         // GET: RoomBookings/Create
         public ActionResult Create()

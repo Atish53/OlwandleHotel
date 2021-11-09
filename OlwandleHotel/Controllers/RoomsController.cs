@@ -67,10 +67,9 @@ namespace OlwandleHotel.Controllers
             return View(room);
         }
 
-        public async Task<ActionResult> Book(int id) //Room Booking - id is the Room Id... Booking is stored to the RoomBookings Table
-        {
-            string numNights = Request.Form["numNights"];
-            int iNumNights = 5;
+        public async Task<ActionResult> Book(int id, int numNights) //Room Booking - id is the Room Id... Booking is stored to the RoomBookings Table
+        {          
+            int iNumNights = Convert.ToInt32(numNights);
             string currentDate = DateTime.Now.AddDays(iNumNights).ToString();
             
             var vFirstName = User.Identity.GetFirstName();
@@ -103,7 +102,7 @@ namespace OlwandleHotel.Controllers
                 room.isActive = false;
             }
 
-            string RoomInvoice = "#200" + room.RoomId + FirstName.Substring(0, 1) + LastName.Substring(0, 1); //100000ths of a second makes the ticket unique. (FFFFF)
+            string RoomInvoice = "#200" + room.RoomId + FirstName.Substring(0, 1) + LastName.Substring(0, 1) + DateTime.Now.ToString("FFFFF"); //100000ths of a second makes the ticket unique. (FFFFF)
 
             roomBooking.InvoiceNumber = RoomInvoice;
 

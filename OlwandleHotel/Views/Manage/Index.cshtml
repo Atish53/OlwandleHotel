@@ -56,15 +56,22 @@
                 <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
             }
         </dd>
-        *@       
+        *@
         @if (Request.IsAuthenticated && User.IsInRole("Customer"))
         {
-            <dt>Previous Events:</dt>
+            <dt>Event Booking History:</dt>
             <dd>
                 <p>
                     @ViewData["Events"] active events. @Html.ActionLink("[ View Events ]", "MyEvents")
                 </p>
             </dd>
+            <dt>Hotel Room Booking History:</dt>
+            <dd>
+                <p>
+                    @ViewData["Hotel Room Bookings"] active events. @Html.ActionLink("[ View Events ]", "MyRoomBookings")
+                </p>
+            </dd>
         }
+
     </dl>
 </div>

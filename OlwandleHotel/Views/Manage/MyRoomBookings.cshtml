@@ -1,0 +1,59 @@
+﻿@model IEnumerable<OlwandleHotel.Models.RoomBooking>
+@using OlwandleHotel.Models
+
+
+@{
+    ViewBag.Title = "My Room Bookings";
+}
+
+
+<h2 class="text-center text-success">Booked Rooms</h2>
+<h4 class="text-center text-info">Your Hotel Room History</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateBooked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room.RoomAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room.Cost)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Where(x => x.CustomerName == User.Identity.GetFirstName()))
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.InvoiceNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateBooked)
+    </td>
+    <td>
+        R @Html.DisplayFor(modelItem => item.Room.RoomAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.InvoiceNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Room.Cost)
+    </td>
+    <td>
+        @Html.ActionLink("Review", "Details", "RoomBookings", new { id = item.RoomBookingId }, null)
+    </td>
+</tr>
+
+    }
+
+</table>
+
