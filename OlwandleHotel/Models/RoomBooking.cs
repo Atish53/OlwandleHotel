@@ -16,10 +16,10 @@ namespace OlwandleHotel.Models
         public string Address { get; set; }
         public string IdNumber { get; set; }//
         public string PhoneNumber { get; set; }
-        public DateTime DateBooked { get; set; } //
+        public string DateBooked { get; set; } //
 
-        public DateTime CheckoutDate { get; set; }
-        public DateTime CheckinDate { get; set; }
+        public string CheckoutDate { get; set; }
+        public string CheckinDate { get; set; }
 
         public string InvoiceNumber { get; set; } //
 

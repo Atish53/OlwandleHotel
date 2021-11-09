@@ -207,6 +207,7 @@
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\RoomBookingsController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
@@ -232,6 +233,18 @@
     <Compile Include="Migrations\202111091209479_Quotes.cs" />
     <Compile Include="Migrations\202111091209479_Quotes.designer.cs">
       <DependentUpon>202111091209479_Quotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111091236362_idk.cs" />
+    <Compile Include="Migrations\202111091236362_idk.designer.cs">
+      <DependentUpon>202111091236362_idk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111091319314_string.cs" />
+    <Compile Include="Migrations\202111091319314_string.designer.cs">
+      <DependentUpon>202111091319314_string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111091321491_str.cs" />
+    <Compile Include="Migrations\202111091321491_str.designer.cs">
+      <DependentUpon>202111091321491_str.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -352,6 +365,11 @@
     <Content Include="Views\Rooms\Details.cshtml" />
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\Quotes\Create.cshtml" />
+    <Content Include="Views\Quotes\Delete.cshtml" />
+    <Content Include="Views\Quotes\Details.cshtml" />
+    <Content Include="Views\Quotes\Edit.cshtml" />
+    <Content Include="Views\Quotes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,6 +403,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111091209479_Quotes.resx">
       <DependentUpon>202111091209479_Quotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111091236362_idk.resx">
+      <DependentUpon>202111091236362_idk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111091319314_string.resx">
+      <DependentUpon>202111091319314_string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111091321491_str.resx">
+      <DependentUpon>202111091321491_str.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

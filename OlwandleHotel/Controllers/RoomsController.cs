@@ -34,6 +34,8 @@ namespace OlwandleHotel.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DeliveryAddress = room.RoomAddress;
+            ViewBag.CurrentLocation = room.RoomAddress;
             return View(room);
         }
 
@@ -69,8 +71,8 @@ namespace OlwandleHotel.Controllers
         {
             string numNights = Request.Form["numNights"];
             int iNumNights = 5;
-            DateTime currentDate = DateTime.Now;
-
+            string currentDate = DateTime.Now.AddDays(iNumNights).ToString();
+            
             var vFirstName = User.Identity.GetFirstName();
             var vLastName = User.Identity.GetLastName();
             var vAddress = User.Identity.GetAddress();
@@ -85,7 +87,7 @@ namespace OlwandleHotel.Controllers
             roomBooking.CustomerSurname = LastName; //
             roomBooking.Address = Address; //
             roomBooking.IdNumber = IdNumber; //The extended .Net Identity claims to get the customer details.. Don't worry, this controller requires authorization of any sort so there's no chance of it returning null.
-            roomBooking.DateBooked = DateTime.Now.AddDays(iNumNights);
+            roomBooking.DateBooked = currentDate;
 
 
 

@@ -1,0 +1,106 @@
+﻿@model OlwandleHotel.Models.Quote
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Quote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumAdults)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumAdults)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumKids)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumKids)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CruiseL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CruiseL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estimatedPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estimatedPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuoteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

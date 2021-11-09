@@ -58,5 +58,7 @@ namespace OlwandleHotel.Models
         }
 
         public System.Data.Entity.DbSet<OlwandleHotel.Models.RoomBooking> RoomBookings { get; set; }
+
+        public System.Data.Entity.DbSet<OlwandleHotel.Models.Quote> Quotes { get; set; }
     }
 }

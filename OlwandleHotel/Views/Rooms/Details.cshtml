@@ -61,7 +61,6 @@
             @Html.DisplayFor(model => model.NumLivingRooms)
         </dd>
 
-
         <dt>
             @Html.DisplayNameFor(model => model.Cost)
         </dt>
@@ -72,6 +71,18 @@
         
     </dl>
 </div>
+
+<h2 class="text-center text-success">Location: </h2>
+<iframe width="800"
+        height="480"
+        frameborder="0" style="position : relative; left : 15%;"
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@ViewBag.CurrentLocation'&destination='@ViewBag.DeliveryAddress'&avoid=tolls|highways" allowfullscreen>
+</iframe>
+
+<br/>
+<br/>
+<br/>
+
 <p>
     <a href="@Url.Action(actionName: "Book", controllerName: "Rooms", routeValues: new { id = Model.RoomId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Book Now</a>
     <a href="@Url.Action(actionName: "Index", controllerName: "Rooms")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>View Other Events</a>
