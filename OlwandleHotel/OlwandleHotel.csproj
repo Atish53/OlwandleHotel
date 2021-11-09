@@ -229,6 +229,10 @@
     <Compile Include="Migrations\202111090928251_Date.designer.cs">
       <DependentUpon>202111090928251_Date.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111091209479_Quotes.cs" />
+    <Compile Include="Migrations\202111091209479_Quotes.designer.cs">
+      <DependentUpon>202111091209479_Quotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -241,6 +245,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\Quote.cs" />
     <Compile Include="Models\ReservedBooking.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomBooking.cs" />
@@ -377,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111090928251_Date.resx">
       <DependentUpon>202111090928251_Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111091209479_Quotes.resx">
+      <DependentUpon>202111091209479_Quotes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

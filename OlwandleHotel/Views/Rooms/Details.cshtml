@@ -68,12 +68,15 @@
 
         <dd>
             @Html.DisplayFor(model => model.Cost)
-        </dd>       
-
-
+        </dd>
+        
     </dl>
 </div>
 <p>
     <a href="@Url.Action(actionName: "Book", controllerName: "Rooms", routeValues: new { id = Model.RoomId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Book Now</a>
     <a href="@Url.Action(actionName: "Index", controllerName: "Rooms")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>View Other Events</a>
 </p>
+
+<form>
+    <input type="text" id="numNights" name="numNights" value="Enter Your Required Number Of Nights">
+</form>  

@@ -24,7 +24,7 @@ namespace OlwandleHotel.Controllers
 
         // GET: Rooms/Details/5
         public async Task<ActionResult> Details(int? id)
-        {
+        {           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -65,8 +65,12 @@ namespace OlwandleHotel.Controllers
             return View(room);
         }
 
-        public async Task<ActionResult> Book(int id, int NumNights) //Room Booking - id is the Room Id... Booking is stored to the RoomBookings Table
+        public async Task<ActionResult> Book(int id) //Room Booking - id is the Room Id... Booking is stored to the RoomBookings Table
         {
+            string numNights = Request.Form["numNights"];
+            int iNumNights = 5;
+            DateTime currentDate = DateTime.Now;
+
             var vFirstName = User.Identity.GetFirstName();
             var vLastName = User.Identity.GetLastName();
             var vAddress = User.Identity.GetAddress();
@@ -81,7 +85,7 @@ namespace OlwandleHotel.Controllers
             roomBooking.CustomerSurname = LastName; //
             roomBooking.Address = Address; //
             roomBooking.IdNumber = IdNumber; //The extended .Net Identity claims to get the customer details.. Don't worry, this controller requires authorization of any sort so there's no chance of it returning null.
-            roomBooking.DateBooked = DateTime.Now;
+            roomBooking.DateBooked = DateTime.Now.AddDays(iNumNights);
 
 
 
@@ -97,7 +101,7 @@ namespace OlwandleHotel.Controllers
                 room.isActive = false;
             }
 
-            string RoomInvoice = "#200" + room.RoomId + FirstName.Substring(0, 1) + LastName.Substring(0, 1) + DateTime.Now.ToString("FFFFF"); //100000ths of a second makes the ticket unique. (FFFFF)
+            string RoomInvoice = "#200" + room.RoomId + FirstName.Substring(0, 1) + LastName.Substring(0, 1); //100000ths of a second makes the ticket unique. (FFFFF)
 
             roomBooking.InvoiceNumber = RoomInvoice;
 
