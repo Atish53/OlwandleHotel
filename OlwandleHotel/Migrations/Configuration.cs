@@ -21,18 +21,20 @@
             var roleManager = new RoleManager<IdentityRole>(roleStore);
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
-            var user = new ApplicationUser { UserName = "admin@paradise.com" };
+            var user = new ApplicationUser { UserName = "cruises@paradise.com" };
 
-            userManager.Create(user, "Admin123@");
+            userManager.Create(user, "Cruises123@");
 
-            roleManager.Create(new IdentityRole { Name = "Admin" });
-            roleManager.Create(new IdentityRole { Name = "Customer" });
-            userManager.AddToRole(user.Id, "Admin");
+            userManager.AddToRole(user.Id, "Cruises");
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.*/
         }
         //Username: admin@paradise.com && Password: Admin123@
+        //Username: tour@paradise.com && Password: Tours123@
+        //Username: hotel@paradise.com && Password: Hotel123@
+        //Username: cruises@paradise.com && Password: Paradise123@
+        //Username: aviation@paradise.com && Password: Aviation123@
     }
 }
 
