@@ -18,6 +18,9 @@ namespace OlwandleHotel.Models
 
         public List<RoomBooking> RoomBookings { get; set; }        
         public List<EventBooking> EventBookings { get; set; }
+        public List<FlightBooking> FlightBookings { get; set; }
+        public List<CruiseBooking> CruiseBookings { get; set; }
+        public List<TourBooking> TourBookings { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -27,7 +30,7 @@ namespace OlwandleHotel.Models
             userIdentity.AddClaim(new Claim("FirstName", FirstName));
             userIdentity.AddClaim(new Claim("LastName", LastName));
             userIdentity.AddClaim(new Claim("Address", Address));
-            userIdentity.AddClaim(new Claim("IdNumber", IdNumber));
+            userIdentity.AddClaim(new Claim("IdNumber", IdNumber));            
             return userIdentity;
         }
     }
