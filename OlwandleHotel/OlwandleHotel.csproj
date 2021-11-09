@@ -225,6 +225,10 @@
     <Compile Include="Migrations\202111081606456_roomNumber.designer.cs">
       <DependentUpon>202111081606456_roomNumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111090928251_Date.cs" />
+    <Compile Include="Migrations\202111090928251_Date.designer.cs">
+      <DependentUpon>202111090928251_Date.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -370,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111081606456_roomNumber.resx">
       <DependentUpon>202111081606456_roomNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111090928251_Date.resx">
+      <DependentUpon>202111090928251_Date.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -44,12 +44,9 @@ namespace OlwandleHotel.Models
         [DisplayName("Living Rooms")]
         public int NumLivingRooms { get; set; } //Number of living rooms in this type of room.
 
-
-        public double Cost()
-        {
-            double FinalCost = NumBeds * 300 + NumBaths * 150 + NumLivingRooms * 400;
-            return FinalCost;
-        } 
+        [Required]
+        [DisplayName("Cost")]
+        public double Cost { get; set; } //Number of living rooms in this type of room.
             
         public int RoomsAvailable { get; set; }
 

@@ -4,28 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">@Model.NumBeds Bedroom Suite At @Model.RoomLocation</h2>
 
 <div>
-    <h4>Room</h4>
+    <hr />
+    <div class="col-md-offset-2 col-md-10" style=" left:11.5%; padding-bottom: 30px">
+        <img src="data:image;base64,@System.Convert.ToBase64String(Model.RoomPicture)" class="img-rounded" style="min-width: 360px; max-width: 480px; width: 480px; min-height: 200px; max-height: 280px; height: 280px; background-size: contain;">
+    </div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RoomPicture)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RoomPicture)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RoomLocation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RoomLocation)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.RoomAddress)
         </dt>
@@ -74,25 +61,19 @@
             @Html.DisplayFor(model => model.NumLivingRooms)
         </dd>
 
+
         <dt>
-            @Html.DisplayNameFor(model => model.RoomsAvailable)
+            @Html.DisplayNameFor(model => model.Cost)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RoomsAvailable)
-        </dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>       
 
-        <dt>
-            @Html.DisplayNameFor(model => model.isActive)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.isActive)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action(actionName: "Book", controllerName: "Rooms", routeValues: new { id = Model.RoomId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Book Now</a>
+    <a href="@Url.Action(actionName: "Index", controllerName: "Rooms")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>View Other Events</a>
 </p>

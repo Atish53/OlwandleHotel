@@ -18,6 +18,9 @@ namespace OlwandleHotel.Models
         public string PhoneNumber { get; set; }
         public DateTime DateBooked { get; set; } //
 
+        public DateTime CheckoutDate { get; set; }
+        public DateTime CheckinDate { get; set; }
+
         public string InvoiceNumber { get; set; } //
 
         public virtual Room Room { get; set; }
