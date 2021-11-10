@@ -148,7 +148,7 @@ namespace OlwandleHotel.Controllers
             document.Close(true);
             //Dispose of email.
             mail.Dispose();
-            try
+            try 
             {
                 // Retrieve required values for the PayFast Merchant
                 string name = "ParadiseTravels Tour: " + tour.TourName;
