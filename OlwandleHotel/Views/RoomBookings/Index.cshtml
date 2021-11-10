@@ -67,10 +67,10 @@
                 @Html.DisplayFor(modelItem => item.CheckoutDate)
             </td>
             <td>
-                R @Html.DisplayFor(modelItem => item.DateBooked)
+                @Html.DisplayFor(modelItem => item.DateBooked)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Room.Cost)
+                R @Html.DisplayFor(modelItem => item.Room.Cost)
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.RoomBookingId })

@@ -1,7 +1,7 @@
 ﻿@model OlwandleHotel.Models.RoomBooking
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Booking Details";
 }
 
 <h2 class="text-center text-success">@Model.Room.NumBeds Room At @Model.Room.RoomLocation</h2>
@@ -208,13 +208,12 @@ else
 
 </div>
 <p>
-    <a href="@Url.Action(actionName: "MyEvents", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Event History</a>
-    <a href="@Url.Action(actionName: "Print", controllerName: "RoomBookings", routeValues: new { id = Model.RoomBookingId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download Invoice</a>
-    @if (Model.CheckinDate == null)
+    <a href="@Url.Action(actionName: "MyEvents", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Booking History</a>
+    @if (Model.CheckinDate == null && User.IsInRole("Hotel"))
     {
         <a href="#" class="btn btn-success" data-toggle="modal" data-target="#@Model.RoomBookingId"><i class="fa fa-shopping-cart"></i>Check-In</a>
     }
-    else if (Model.CheckoutDate == null)
+    else if (Model.CheckoutDate == null && User.IsInRole("Hotel"))
     {
         <a href="#" class="btn btn-success" data-toggle="modal" data-target="#@Model.IdNumber"><i class="fa fa-shopping-cart"></i>Check-Out</a>
     }
@@ -222,7 +221,4 @@ else
     {
 
     }
-    <a href="@Url.Action(actionName: "Order", controllerName: "EventBookings", routeValues: new { id = Model.RoomBookingId })" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Order Room Service</a>
-    <a href="@Url.Action(actionName: "Review", controllerName: "EventBookings", routeValues: new { id = Model.RoomBookingId })" class="btn btn-warning"><i class="fa fa-shopping-cart"></i>Review Stay</a>
-    
 </p>

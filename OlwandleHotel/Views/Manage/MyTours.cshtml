@@ -6,8 +6,8 @@
     ViewBag.Title = "My Tours";
 }
 
-<h2 class="text-center text-success">Booked Flights</h2>
-<h4 class="text-center text-info">Your Flight History</h4>
+<h2 class="text-center text-success">Booked Tours</h2>
+<h4 class="text-center text-info">Your Tour History</h4>
 
 <table class="table">
     <tr>
@@ -43,7 +43,7 @@
         @Html.DisplayFor(modelItem => item.DateBooked)
     </td>
     <td>
-        R @Html.DisplayFor(modelItem => item.Tour.TourPicture)
+        R @Html.DisplayFor(modelItem => item.Tour.TourPrice)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.Tour.TourLocation)
