@@ -1,111 +1,57 @@
 ﻿@model IEnumerable<OlwandleHotel.Models.Flight>
+@using OlwandleHotel.Models
 
 @{
-    ViewBag.Title = "MyFlights";
+    ViewBag.Title = "My Flights";
 }
 
-<h2>MyFlights</h2>
+<h2 class="text-center text-success">Booked Flights</h2>
+<h4 class="text-center text-info">Your Flight History</h4>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateBooked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FlightL)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DestinationL)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateFlight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateReturn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.returnTicket)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerSurname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateBooked)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoardDateAndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketNumber)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlightL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DestinationL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateFlight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateReturn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.returnTicket)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerSurname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateBooked)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoardDateAndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketNumber)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FlightId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FlightId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FlightId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Where(x => x.CustomerName == User.Identity.GetFirstName()))
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateBooked)
+    </td>
+    <td>
+        R @Html.DisplayFor(modelItem => item.TotalCost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FlightL)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DestinationL)
+    </td>
+    <td>
+        @Html.ActionLink("Review", "Details", "Flights", new { id = item.FlightId }, null)
+    </td>
+</tr>
+
+    }
 
 </table>
+

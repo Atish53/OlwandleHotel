@@ -15,10 +15,34 @@ namespace OlwandleHotel.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Flights
-        public async Task<ActionResult> Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(await db.Flights.ToListAsync());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var students = from s in db.Flights
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.CustomerSurname.Contains(searchString)
+                                       || s.CustomerName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.CustomerSurname);
+                    break;
+                case "Date":
+                    students = students.OrderBy(s => s.DateBooked);
+                    break;
+                case "date_desc":
+                    students = students.OrderByDescending(s => s.DateBooked);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.CustomerSurname);
+                    break;
+            }
+
+            return View(students.ToList());
         }
 
         // GET: Flights/Details/5
@@ -131,6 +155,7 @@ namespace OlwandleHotel.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Details" + "/" + id);
         }
+
 
         // GET: Flights/Edit/5
         public async Task<ActionResult> Edit(int? id)
