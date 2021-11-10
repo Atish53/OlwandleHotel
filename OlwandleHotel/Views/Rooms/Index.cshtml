@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<OlwandleHotel.Models.Room>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "View Hotels";
 }
 
-<h2>Index</h2>
+<h2 class="text-center text-info">Hotels</h2>
+<h3 class="text-center text-warning">Hotel Rooms</h3>
 
 @if (User.IsInRole("Admin"))
 {

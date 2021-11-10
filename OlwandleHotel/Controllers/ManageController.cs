@@ -79,8 +79,14 @@ namespace OlwandleHotel.Controllers
             string Name = User.Identity.GetFirstName();
 
             int numEvents = db.EventBookings.Count(x => x.CustomerName == Name);
+            int numTours = db.TourBookings.Count(x => x.CustomerName == Name);
+            int numBookings = db.RoomBookings.Count(x => x.CustomerName == Name);
+            int numFlights = db.Flights.Count(x => x.CustomerName == Name);
 
             ViewData["Events"] = numEvents;
+            ViewData["Flights"] = numFlights;
+            ViewData["HotelRooms"] = numBookings;
+            ViewData["Tours"] = numTours;
             return View(model);
         }
 

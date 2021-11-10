@@ -57,6 +57,9 @@
             }
         </dd>
         *@
+
+        <hr/>
+
         @if (Request.IsAuthenticated && User.IsInRole("Customer"))
         {
             <dt>Event Booking History:</dt>
@@ -65,10 +68,22 @@
                     @ViewData["Events"] active events. @Html.ActionLink("[ View Events ]", "MyEvents")
                 </p>
             </dd>
-            <dt>Hotel Room Booking History:</dt>
+            <dt>Hotel Room History:</dt>
             <dd>
                 <p>
-                    @ViewData["Hotel Room Bookings"] active events. @Html.ActionLink("[ View Events ]", "MyRoomBookings")
+                    @ViewData["HotelRooms"] active bookings. @Html.ActionLink("[ View Rooms ]", "MyRoomBookings")
+                </p>
+            </dd>
+            <dt>Flight History:</dt>
+            <dd>
+                <p>
+                    @ViewData["Flights"] active flights. @Html.ActionLink("[ View Flights ]", "MyFlights")
+                </p>
+            </dd>
+            <dt>Tour History:</dt>
+            <dd>
+                <p>
+                    @ViewData["Tours"] active tours. @Html.ActionLink("[ View Tours ]", "MyTours")
                 </p>
             </dd>
         }
