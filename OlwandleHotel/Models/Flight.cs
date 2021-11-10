@@ -29,15 +29,24 @@ namespace OlwandleHotel.Models
             CapeTown
         }
 
+        [DataType(DataType.Date, ErrorMessage = "Date only")]
         public string DateFlight { get; set; }
-                
+
+        [DataType(DataType.Date, ErrorMessage = "Date only")]
         public string DateReturn  { get; set; }
 
         public bool returnTicket { get; set; }
 
-        public double TotalCost { get; set; }        
+        public double TotalCost { get; set; }
 
-        public List<FlightBooking> FlightBookings { get; set; }
+        public string CustomerName { get; set; } //
+        public string CustomerSurname { get; set; } //
+        public string Address { get; set; }
+        public string IdNumber { get; set; }//
+        public string PhoneNumber { get; set; }
+        public string DateBooked { get; set; } //
+        public string BoardDateAndTime { get; set; } //
+        public string TicketNumber { get; set; } //     
 
     }
 }

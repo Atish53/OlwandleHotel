@@ -18,7 +18,7 @@ namespace OlwandleHotel.Models
 
         public List<RoomBooking> RoomBookings { get; set; }        
         public List<EventBooking> EventBookings { get; set; }
-        public List<FlightBooking> FlightBookings { get; set; }
+        public List<Flight> Flights { get; set; }
         public List<CruiseBooking> CruiseBookings { get; set; }
         public List<TourBooking> TourBookings { get; set; }
 
@@ -63,5 +63,7 @@ namespace OlwandleHotel.Models
         public System.Data.Entity.DbSet<OlwandleHotel.Models.RoomBooking> RoomBookings { get; set; }
 
         public System.Data.Entity.DbSet<OlwandleHotel.Models.Quote> Quotes { get; set; }
+
+        public System.Data.Entity.DbSet<OlwandleHotel.Models.Flight> Flights { get; set; }
     }
 }

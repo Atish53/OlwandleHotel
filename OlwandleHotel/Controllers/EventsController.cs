@@ -84,7 +84,7 @@ namespace OlwandleHotel.Controllers
             EventBooking eventBooking = new EventBooking();
             eventBooking.CustomerName = FirstName; //
             eventBooking.CustomerSurname = LastName; //
-            eventBooking.IdNumber = IdNumber; //The extended .Net Identity claims to get the customer details.. Don't worry, this controller requires authorization of any sort so there's no chance of it returning null.
+            eventBooking.IdNumber = IdNumber; //The extended .Net Identity claims to get the customer details... Don't worry, this controller requires authorization of any sort so there's no chance of it returning null.
             eventBooking.DateBooked = DateTime.Now;          
             
             Event @event = await db.Events.FindAsync(id);

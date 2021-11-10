@@ -203,6 +203,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\EventBookingsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -253,6 +254,18 @@
     <Compile Include="Migrations\202111092234080_Old.cs" />
     <Compile Include="Migrations\202111092234080_Old.designer.cs">
       <DependentUpon>202111092234080_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111100019011_FlightChange.cs" />
+    <Compile Include="Migrations\202111100019011_FlightChange.designer.cs">
+      <DependentUpon>202111100019011_FlightChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111100029129_Date1.cs" />
+    <Compile Include="Migrations\202111100029129_Date1.designer.cs">
+      <DependentUpon>202111100029129_Date1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111100056238_Fly.cs" />
+    <Compile Include="Migrations\202111100056238_Fly.designer.cs">
+      <DependentUpon>202111100056238_Fly.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -386,6 +399,12 @@
     <Content Include="Views\Quotes\Index.cshtml" />
     <Content Include="Views\Rooms\Book.cshtml" />
     <Content Include="Views\Manage\MyRoomBookings.cshtml" />
+    <Content Include="Views\Flights\Create.cshtml" />
+    <Content Include="Views\Flights\Delete.cshtml" />
+    <Content Include="Views\Flights\Details.cshtml" />
+    <Content Include="Views\Flights\Edit.cshtml" />
+    <Content Include="Views\Flights\Index.cshtml" />
+    <Content Include="Views\Manage\MyFlights.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -434,6 +453,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111092234080_Old.resx">
       <DependentUpon>202111092234080_Old.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111100019011_FlightChange.resx">
+      <DependentUpon>202111100019011_FlightChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111100029129_Date1.resx">
+      <DependentUpon>202111100029129_Date1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111100056238_Fly.resx">
+      <DependentUpon>202111100056238_Fly.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
