@@ -212,6 +212,8 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\RoomBookingsController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
+    <Compile Include="Controllers\TourBookingsController.cs" />
+    <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -405,6 +407,16 @@
     <Content Include="Views\Flights\Edit.cshtml" />
     <Content Include="Views\Flights\Index.cshtml" />
     <Content Include="Views\Manage\MyFlights.cshtml" />
+    <Content Include="Views\Tours\Create.cshtml" />
+    <Content Include="Views\Tours\Delete.cshtml" />
+    <Content Include="Views\Tours\Details.cshtml" />
+    <Content Include="Views\Tours\Edit.cshtml" />
+    <Content Include="Views\Tours\Index.cshtml" />
+    <Content Include="Views\TourBookings\Create.cshtml" />
+    <Content Include="Views\TourBookings\Delete.cshtml" />
+    <Content Include="Views\TourBookings\Details.cshtml" />
+    <Content Include="Views\TourBookings\Edit.cshtml" />
+    <Content Include="Views\TourBookings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

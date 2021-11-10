@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2 class="text-center text-info">Book A Flight</h2>
 
 
 @using (Html.BeginForm())
@@ -19,63 +19,77 @@
     @Html.HiddenFor(x => x.DateBooked)
     @Html.HiddenFor(x => x.TotalCost)
     @Html.HiddenFor(x => x.TicketNumber)
-    <div class="form-horizontal">
-        <h4>Flight</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.FlightL, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.FlightL, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.FlightL, "", new { @class = "text-danger" })
-            </div>
+<div class="form-horizontal">
+    <h4>Flight Costs</h4>
+    <ul>
+        <li>
+            Kulula - R600
+        </li>
+        <li>
+            British Airways - R800
+        </li>
+        <li>
+            South African Airlines - R450
+        </li>
+    </ul>
+    <h4>Destination Costs</h4>
+    <ul>
+        <li>Durban - R1000</li>
+        <li> Johannesburg - R1500 </li>
+        <li> Cape Town -R1750 </li>
+    
+    </ul>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("Airline:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.FlightL, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FlightL, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DestinationL, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.DestinationL, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.DestinationL, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.Label("Destination", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.DestinationL, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DestinationL, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateFlight, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateFlight, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateFlight, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.Label("Departure Date:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DateFlight, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DateFlight, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateReturn, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateReturn, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateReturn, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.Label("Return Date:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DateReturn, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DateReturn, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.returnTicket, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.returnTicket)
-                    @Html.ValidationMessageFor(model => model.returnTicket, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+    <div class="form-group">
+        @Html.Label("Return Ticket?", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.returnTicket)
+                @Html.ValidationMessageFor(model => model.returnTicket, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
 </div>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

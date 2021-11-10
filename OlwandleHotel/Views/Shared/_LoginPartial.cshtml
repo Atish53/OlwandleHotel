@@ -22,14 +22,23 @@
             </ul>
         </li>
     }
+    @if (Request.IsAuthenticated && User.IsInRole("Aviation"))
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flight Attendant Functions<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Manage And Board Customers", "Index", "Flights")</li>                
+            </ul>
+        </li>
+    }
     else if (Request.IsAuthenticated)
     {
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li>@Html.ActionLink("My Events", "MyEvents", "Manage")</li>                
-                <li>@Html.ActionLink("My Hotel Rooms", "MyRoomBookings", "Manage")</li>              
-                <li>@Html.ActionLink("My Flights", "MyFlights", "Manage")</li>              
+                <li>@Html.ActionLink("My Events", "MyEvents", "Manage")</li>
+                <li>@Html.ActionLink("My Hotel Rooms", "MyRoomBookings", "Manage")</li>
+                <li>@Html.ActionLink("My Flights", "MyFlights", "Manage")</li>
 
             </ul>
         </li>

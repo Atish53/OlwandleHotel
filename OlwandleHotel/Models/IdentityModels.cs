@@ -65,5 +65,9 @@ namespace OlwandleHotel.Models
         public System.Data.Entity.DbSet<OlwandleHotel.Models.Quote> Quotes { get; set; }
 
         public System.Data.Entity.DbSet<OlwandleHotel.Models.Flight> Flights { get; set; }
+
+        public System.Data.Entity.DbSet<OlwandleHotel.Models.Tour> Tours { get; set; }
+
+        public System.Data.Entity.DbSet<OlwandleHotel.Models.TourBooking> TourBookings { get; set; }
     }
 }

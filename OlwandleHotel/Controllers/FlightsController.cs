@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OlwandleHotel.Models;
+using System.Text;
 
 namespace OlwandleHotel.Controllers
 {
@@ -132,7 +133,7 @@ namespace OlwandleHotel.Controllers
                 finalCost += 450;
             }
 
-            finalCost = (finalCost * numDays * 0.3);
+            finalCost = ((finalCost * 0.2) * numDays) + finalCost;
 
             if (flight.returnTicket == true)
             {
@@ -145,7 +146,46 @@ namespace OlwandleHotel.Controllers
 
                 db.Flights.Add(flights);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+            try
+            {
+                // Retrieve required values for the PayFast Merchant
+                string name = "ParadiseTravels Flight: " + flight.DestinationL + "with" + flight.FlightL;
+                string description = "This is a once-off and non-refundable payment. ";
+
+                string site = "https://sandbox.payfast.co.za/eng/process";
+                string merchant_id = "";
+                string merchant_key = "";
+
+                string paymentMode = System.Configuration.ConfigurationManager.AppSettings["PaymentMode"];
+
+                if (paymentMode == "test")
+                {
+                    site = "https://sandbox.payfast.co.za/eng/process?";
+                    merchant_id = "10000100";
+                    merchant_key = "46f0cd694581a";
+                }
+
+                // Build the query string for payment site
+
+                StringBuilder str = new StringBuilder();
+                str.Append("merchant_id=" + HttpUtility.UrlEncode(merchant_id));
+                str.Append("&merchant_key=" + HttpUtility.UrlEncode(merchant_key));
+                str.Append("&return_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_ReturnURL"]));
+                str.Append("&cancel_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_CancelURL"]));
+                str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
+
+                str.Append("&m_payment_id=" + HttpUtility.UrlEncode(flights.FlightId.ToString()));
+                str.Append("&amount=" + HttpUtility.UrlEncode(flights.TotalCost.ToString()));
+                str.Append("&item_name=" + HttpUtility.UrlEncode(name));
+                str.Append("&item_description=" + HttpUtility.UrlEncode(description));
+
+                // Redirect to PayFast
+                return Redirect(site + str.ToString());
+            }
+            catch (Exception)
+            {
+                throw;
+            }            
         }
 
         public async Task<ActionResult> Board(int id)
