@@ -269,6 +269,10 @@
     <Compile Include="Migrations\202111100056238_Fly.designer.cs">
       <DependentUpon>202111100056238_Fly.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111100415000_from.cs" />
+    <Compile Include="Migrations\202111100415000_from.designer.cs">
+      <DependentUpon>202111100415000_from.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Flight.cs" />
@@ -417,6 +421,7 @@
     <Content Include="Views\TourBookings\Details.cshtml" />
     <Content Include="Views\TourBookings\Edit.cshtml" />
     <Content Include="Views\TourBookings\Index.cshtml" />
+    <Content Include="Views\Manage\MyTours.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -474,6 +479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111100056238_Fly.resx">
       <DependentUpon>202111100056238_Fly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111100415000_from.resx">
+      <DependentUpon>202111100415000_from.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

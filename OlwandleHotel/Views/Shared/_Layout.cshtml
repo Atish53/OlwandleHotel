@@ -37,15 +37,35 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-header">Events</li>
-                            <li>@Html.ActionLink("View Events", "Index", "Events")</li>                            
+                            <li>@Html.ActionLink("View Events", "Index", "Events")</li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Manage Events</li>
                             <li>@Html.ActionLink("Verify Ticket", "Verify", "Events")</li>
-                            
+
                         </ul>
-                    </li>                    
-                    <li>@Html.ActionLink("Aviation", "Index", "Aviation")</li>
-                    <li>@Html.ActionLink("Tours", "Index", "Events")</li>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aviation<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Book A Plane Ticket</li>
+                            <li>@Html.ActionLink("Book Ticket", "Create", "Flights")</li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">View My Tickets</li>
+                            <li>@Html.ActionLink("View Flight History", "MyFlights", "Manage")</li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tours<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Tours</li>
+                            <li>@Html.ActionLink("View Tours", "Index", "Tours")</li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">View My Tickets</li>
+                            <li>@Html.ActionLink("View Tour History", "MyTours", "Manage")</li>
+
+                        </ul>
+                    </li>                   
 
                 </ul>
                 @Html.Partial("_LoginPartial")

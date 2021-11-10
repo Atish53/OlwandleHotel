@@ -27,7 +27,16 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flight Attendant Functions<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Manage And Board Customers", "Index", "Flights")</li>                
+                <li>@Html.ActionLink("Manage And Board Customers", "Index", "Flights")</li>
+            </ul>
+        </li>
+    }
+    @if (Request.IsAuthenticated && User.IsInRole("Hotel"))
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flight Attendant Functions<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Manage Hotel Customers", "Index", "Rooms")</li>
             </ul>
         </li>
     }
@@ -39,6 +48,7 @@
                 <li>@Html.ActionLink("My Events", "MyEvents", "Manage")</li>
                 <li>@Html.ActionLink("My Hotel Rooms", "MyRoomBookings", "Manage")</li>
                 <li>@Html.ActionLink("My Flights", "MyFlights", "Manage")</li>
+                <li>@Html.ActionLink("My Tours", "MyTours", "Manage")</li>
 
             </ul>
         </li>

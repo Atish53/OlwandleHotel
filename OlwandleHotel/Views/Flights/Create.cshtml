@@ -37,7 +37,7 @@
         <li>Durban - R1000</li>
         <li> Johannesburg - R1500 </li>
         <li> Cape Town -R1750 </li>
-    
+
     </ul>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -50,7 +50,15 @@
     </div>
 
     <div class="form-group">
-        @Html.Label("Destination", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("From:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.FromL, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FromL, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Destination:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EnumDropDownListFor(model => model.DestinationL, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.DestinationL, "", new { @class = "text-danger" })

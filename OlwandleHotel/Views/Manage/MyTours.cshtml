@@ -1,0 +1,59 @@
+﻿@model IEnumerable<OlwandleHotel.Models.TourBooking>
+
+@using OlwandleHotel.Models
+
+@{
+    ViewBag.Title = "My Tours";
+}
+
+<h2 class="text-center text-success">Booked Flights</h2>
+<h4 class="text-center text-info">Your Flight History</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateBooked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tour.TourPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tour.TourLocation)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Where(x => x.CustomerName == User.Identity.GetFirstName()))
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CustomerName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateBooked)
+    </td>
+    <td>
+        R @Html.DisplayFor(modelItem => item.Tour.TourPicture)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tour.TourLocation)
+    </td>    
+    <td>
+        @Html.ActionLink("Review", "Details", "TourBookings", new { id = item.TourBookingId }, null)
+    </td>
+</tr>
+
+    }
+
+</table>
+

@@ -20,7 +20,15 @@ namespace OlwandleHotel.Models
             SAA      //Meh
         }
 
-        [Display(Name = "Destinations")]
+        [Display(Name = "From")]
+        public FromList FromL { get; set; }
+        public enum FromList
+        {
+            Durban,
+            Johannesburg,
+            CapeTown
+        }
+
         public DestinationList DestinationL { get; set; }
         public enum DestinationList
         {

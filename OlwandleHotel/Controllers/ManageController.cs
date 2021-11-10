@@ -349,6 +349,12 @@ namespace OlwandleHotel.Controllers
             return View(await db.Flights.ToListAsync());
         }
 
+        // GET: RoomBookings
+        public async Task<ActionResult> MyTours()
+        {
+            return View(await db.TourBookings.ToListAsync());
+        }
+
 
 
         protected override void Dispose(bool disposing)

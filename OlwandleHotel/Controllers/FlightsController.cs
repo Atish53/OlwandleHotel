@@ -12,10 +12,12 @@ using System.Text;
 
 namespace OlwandleHotel.Controllers
 {
+    [Authorize]
     public class FlightsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize(Roles = "Aviation")]
         public ViewResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -54,10 +56,30 @@ namespace OlwandleHotel.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Flight flight = await db.Flights.FindAsync(id);
+            if (flight.DestinationL.ToString() == "Durban")
+            {
+                ViewBag.Destination = "Virginia Airport Hanger No.7, Fairway, Durban North, Durban, 4051";
+            }
+            else if (flight.DestinationL.ToString() == "Johannesburg")
+            {
+                ViewBag.Destination = "Airport Rd, Lanseria, 1748";
+            }
+            else if (flight.DestinationL.ToString() == "Cape Town")
+            {
+                ViewBag.Destination = "Matroosfontein, Cape Town, 7490";
+            }
+            else
+            {
+                ViewBag.Destination = "Virginia Airport Hanger No.7, Fairway, Durban North, Durban, 4051";
+            }
             if (flight == null)
             {
                 return HttpNotFound();
             }
+
+            
+
+
             return View(flight);
         }
 
@@ -72,7 +94,7 @@ namespace OlwandleHotel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "FlightId,FlightL,DestinationL,DateFlight,DateReturn,returnTicket,TotalCost,CustomerName,CustomerSurname,Address,IdNumber,PhoneNumber,DateBooked,BoardDateAndTime,TicketNumber")] Flight flight)
+        public async Task<ActionResult> Create([Bind(Include = "FlightId,FlightL,FromL,DestinationL,DateFlight,DateReturn,returnTicket,TotalCost,CustomerName,CustomerSurname,Address,IdNumber,PhoneNumber,DateBooked,BoardDateAndTime,TicketNumber")] Flight flight)
         {
             Flight flights = new Flight();
             double finalCost = 0;
@@ -119,6 +141,20 @@ namespace OlwandleHotel.Controllers
                 finalCost += 1750;
             }
 
+            //From
+            if (flight.FromL.ToString() == "Durban")
+            {
+                finalCost += 500;
+            }
+            else if (flight.FromL.ToString() == "Johannesburg")
+            {
+                finalCost += 600;
+            }
+            else if (flight.FromL.ToString() == "CapeTown")
+            {
+                finalCost += 750;
+            }
+
             //Aircrafts
             if (flight.FlightL.ToString() == "Kulula")
             {
@@ -143,6 +179,7 @@ namespace OlwandleHotel.Controllers
             flights.TotalCost = finalCost;
             flights.FlightL = flight.FlightL;
             flights.DestinationL = flight.DestinationL;
+            flights.FromL = flight.FromL;
 
                 db.Flights.Add(flights);
                 await db.SaveChangesAsync();

@@ -42,7 +42,7 @@ else
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TotalCost)
+           R @Html.DisplayFor(model => model.TotalCost)
         </dd>
 
         <dt>
@@ -109,23 +109,15 @@ else
 
         <dd>
             @Html.DisplayFor(model => model.IdNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateBooked)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateBooked)
-        </dd>
+        </dd>      
 
     </dl>
 
-    <h2 class="text-center text-success">Waypoint: </h2>
+    <h2 class="text-center text-success">Waypoint To Airport: </h2>
     <iframe width="800"
             height="480"
             frameborder="0" style="position : relative; left : 15%;"
-            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@Model.Address'&destination='@Model.Address'&avoid=tolls|highways" allowfullscreen>
+            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@Model.Address'&destination='@ViewBag.Destination'&avoid=tolls|highways" allowfullscreen>
     </iframe>
     <br />
     <br />
@@ -139,20 +131,13 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center">Confirm Customer Boarded For: @Model.CustomerName @Model.CustomerSurname</h4>
+                    <h4 class="modal-title text-center">Confirm @Model.CustomerName @Model.CustomerSurname: @Model.FlightL Airplane</h4>
                 </div>
-                <div class="modal-body">
-                    <iframe width="800"
-                            height="480"
-                            frameborder="0" style="position : relative; left : 15%;"
-                            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@Model.Address'&destination='@Model.Address'&avoid=tolls|highways" allowfullscreen>
-                    </iframe>
-                    <br />
-                    <br />
+                <div class="modal-body">                   
                     <p class="text-info text-center text-capitalize">Ticket Number:</p>
                     <p class="text-center">@Model.TicketNumber</p>
                     <p class="text-danger text-center text-capitalize">Airplane:</p>
-                    <p class="text-center">R @Model.FlightL</p>
+                    <p class="text-center">@Model.FlightL</p>
                     <p class="text-success text-center text-capitalize">Destination:</p>
                     <p class="text-center">@Model.DestinationL</p>
 
@@ -167,8 +152,7 @@ else
     </div>  
 </div>
 <p>
-    <a href="@Url.Action(actionName: "MyFlights", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Event History</a>
-    <a href="@Url.Action(actionName: "Print", controllerName: "Flights", routeValues: new { id = Model.FlightId})" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Download Invoice</a>
+    <a href="@Url.Action(actionName: "MyFlights", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Flight History</a>
     @if (Model.BoardDateAndTime == null && User.IsInRole("Aviation"))
     {
         <a href="#" class="btn btn-success" data-toggle="modal" data-target="#@Model.FlightId"><i class="fa fa-shopping-cart"></i>Board Customer</a>
